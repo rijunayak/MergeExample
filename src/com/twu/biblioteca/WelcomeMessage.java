@@ -1,4 +1,4 @@
-//Display has information
+//A Welcome Message has a welcome message which it can display
 package com.twu.biblioteca;
 
 public class WelcomeMessage {

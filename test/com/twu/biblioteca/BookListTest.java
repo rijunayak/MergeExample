@@ -6,10 +6,12 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class WelcomeMessageTest {
+public class BookListTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -25,8 +27,9 @@ public class WelcomeMessageTest {
 
     @Test
     public void shouldDisplayWelcomeMessageOfDisplay() {
-        WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome to Bangalore Public Library");
-        welcomeMessage.display();
-        assertEquals("Welcome to Bangalore Public Library\n", outContent.toString());
+        ArrayList<String> listOfBooks= new ArrayList<String>(Arrays.asList("Three Little Pigs", "Clifford goes on a trip", "Cinderella"));
+        BookList bookList = new BookList(listOfBooks);
+        bookList.display();
+        assertEquals("Three Little Pigs\nClifford goes on a trip\nCinderella\n", outContent.toString());
     }
 }
