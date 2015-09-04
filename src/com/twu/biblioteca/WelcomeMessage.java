@@ -1,14 +1,14 @@
-//Display displays a welcome message to the screen
+//Display has information
 package com.twu.biblioteca;
 
-public class Display {
+public class WelcomeMessage {
     private String welcomeMessage;
 
-    public Display(String welcomeMessage) {
+    public WelcomeMessage(String welcomeMessage) {
         this.welcomeMessage = welcomeMessage;
     }
 
-    public void displayWelcomeMessage() {
+    public void display() {
         System.out.println(this.welcomeMessage);
     }
 }
