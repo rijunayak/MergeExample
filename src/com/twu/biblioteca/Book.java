@@ -16,6 +16,6 @@ public class Book {
 
 
     public void display() {
-        System.out.format("%23s%23s%5d\n", title, author, yearOfPublication);
+        System.out.format("%23s%23s%23d\n", title, author, yearOfPublication);
     }
 }

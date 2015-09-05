@@ -29,6 +29,6 @@ public class BookTest {
 
         book.display();
 
-        assertEquals(String.format("%23s%23s%5d\n", "Three Little Pigs", "James Halliwell-Phillipps", 1886), outContent.toString());
+        assertEquals(String.format("%23s%23s%23d\n", "Three Little Pigs", "James Halliwell-Phillipps", 1886), outContent.toString());
     }
 }
