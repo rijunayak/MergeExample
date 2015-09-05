@@ -2,3 +2,6 @@ out/
 .idea/
 biblioteca.iml
 .DS_Store
+cobertura.ser
+reports/
+instrumented/
