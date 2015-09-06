@@ -4,3 +4,4 @@ package com.twu.biblioteca;
 public interface MenuItem extends Displayable {
     public String doOperation();
 }
+
