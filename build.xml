@@ -22,7 +22,7 @@
             <src path="src;test"/>
             <classpath>
                 <pathelement location="lib/junit-4.11.jar"/>
-                <pathelement location="lib/hamcrest-core-1.3.jar"/>
+                <pathelement location="lib/mockito-all-1.9.5.jar"/>
                 <pathelement location="lib/cobertura-2.1.1.jar"/>
             </classpath>
         </javac>
@@ -68,7 +68,7 @@
         <junit printsummary="yes" haltonfailure="true" fork="true" forkmode="once">
             <classpath location="./instrumented"/>
             <classpath location="lib/junit-4.11.jar"/>
-            <classpath location="lib/hamcrest-core-1.3.jar"/>
+            <classpath location="lib/mockito-all-1.9.5.jar"/>
             <classpath location="out"/>
             <classpath refid="cobertura.classpath"/>
             <formatter type="xml"/>

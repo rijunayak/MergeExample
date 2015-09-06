@@ -1,4 +1,4 @@
-//A Welcome Message has a welcome message which it can display
+//A Welcome Message has a welcome message which it can convert to a String
 package com.twu.biblioteca;
 
 public class WelcomeMessage implements Displayable {

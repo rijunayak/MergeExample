@@ -1,9 +1,7 @@
-//A Book has an author, title, and Year of Publication which it can display
+//A Book has an author, title, and Year of Publication which it can convert to a String
 package com.twu.biblioteca;
 
-import org.junit.Test;
-
-public class Book {
+public class Book implements Displayable {
     private String author;
     private String title;
     private int yearOfPublication;
@@ -15,7 +13,8 @@ public class Book {
     }
 
 
-    public void display() {
-        System.out.format("%23s%23s%23d\n", title, author, yearOfPublication);
+    @Override
+    public String toString() {
+        return String.format("%23s%23s%23d", title, author, yearOfPublication);
     }
 }

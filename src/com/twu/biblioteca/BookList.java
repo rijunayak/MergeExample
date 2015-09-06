@@ -1,9 +1,9 @@
-//A BookList has a list of books which it can display
+//A BookList has a list of books which it can convert to a String
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList {
+public class BookList implements Displayable {
 
     private ArrayList<Book> bookList;
 
@@ -11,13 +11,16 @@ public class BookList {
         this.bookList = bookList;
     }
 
-    public void display() {
-        System.out.format("%23s%23s%23s\n", "Title", "Author", "Year Of Publication");
+    @Override
+    public String toString() {
+        String listOfBooks = "";
+        listOfBooks += String.format("%23s%23s%23s\n", "Title", "Author", "Year Of Publication");
         for(int i = 0; i < 69; i++)
-            System.out.print("-");
-        System.out.println();
+            listOfBooks += "-";
+        listOfBooks += "\n";
         for(int i = 0; i < bookList.size(); i++) {
-            bookList.get(i).display();
+            listOfBooks += bookList.get(i) + "\n";
         }
+        return listOfBooks;
     }
 }
