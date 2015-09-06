@@ -10,7 +10,7 @@ public class InputParser {
     }
 
     public MenuItem parseInput(BookList bookList) {
-        MenuItem menuItem = null;
+        MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(bookList);
         }

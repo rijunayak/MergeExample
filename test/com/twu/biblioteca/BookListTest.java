@@ -27,7 +27,7 @@ public class BookListTest {
         when(book2.toString()).thenReturn(String.format("%23s%23s%23d", "Clifford, The Big Red Dog", "Norman Bridwell", 1963));
         when(book3.toString()).thenReturn(String.format("%23s%23s%23d", "Cinderella", "Giambattista Basile", 1634));
 
-        assertEquals(String.format("%23s%23s%23s\n", "Title", "Author", "Year Of Publication") +
+        assertEquals(String.format("\n%23s%23s%23s\n", "Title", "Author", "Year Of Publication") +
                 sixtyNineDashes + "\n" +
                 book1.toString() + "\n" +
                 book2.toString() + "\n" +
