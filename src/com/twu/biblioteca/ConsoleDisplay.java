@@ -3,9 +3,9 @@ package com.twu.biblioteca;
 
 public class ConsoleDisplay implements Display {
 
-    private Displayable displayable;
+    private Object displayable;
 
-    public ConsoleDisplay(Displayable displayable) {
+    public ConsoleDisplay(Object displayable) {
         this.displayable = displayable;
     }
 

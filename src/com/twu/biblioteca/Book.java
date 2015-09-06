@@ -1,7 +1,7 @@
 //A Book has an author, title, and Year of Publication which it can convert to a String
 package com.twu.biblioteca;
 
-public class Book implements Displayable {
+public class Book {
     private String author;
     private String title;
     private int yearOfPublication;

@@ -25,8 +25,7 @@ public class ConsoleDisplayTest {
 
     @Test
     public void checkIfDisplayingString() {
-        Displayable displayable = new WelcomeMessage("Hi, I'm Riju");
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay(displayable);
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay("Hi, I'm Riju");
 
         consoleDisplay.display();
 

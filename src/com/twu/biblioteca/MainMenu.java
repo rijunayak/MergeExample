@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class MainMenu implements Displayable {
+public class MainMenu {
 
     private ArrayList<MenuItem> menuItems;
 

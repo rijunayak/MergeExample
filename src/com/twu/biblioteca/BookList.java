@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList implements Displayable {
+public class BookList {
 
     private ArrayList<Book> bookList;
 
