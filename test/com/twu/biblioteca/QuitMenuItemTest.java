@@ -13,4 +13,11 @@ public class QuitMenuItemTest {
 
         assertEquals("Quitting App", quitMenuItem.doOperation());
     }
+
+    @Test
+    public void shouldReturnQuitWhenConvertedToString() {
+        QuitMenuItem quitMenuItem = new QuitMenuItem();
+
+        assertEquals("Quit", quitMenuItem.toString());
+    }
 }
