@@ -3,14 +3,14 @@ package com.twu.biblioteca;
 
 public class ConsoleDisplay implements Display {
 
-    private String stringToDisplay;
+    private Displayable displayable;
 
-    public ConsoleDisplay(String stringToDisplay) {
-        this.stringToDisplay = stringToDisplay;
+    public ConsoleDisplay(Displayable displayable) {
+        this.displayable = displayable;
     }
 
     @Override
     public void display() {
-        System.out.println(stringToDisplay);
+        System.out.println(displayable);
     }
 }

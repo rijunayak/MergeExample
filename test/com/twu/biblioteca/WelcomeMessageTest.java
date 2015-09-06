@@ -11,22 +11,10 @@ import static org.junit.Assert.assertEquals;
 
 public class WelcomeMessageTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-    @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void cleanUpStreams() {
-        System.setOut(System.out);
-    }
-
     @Test
-    public void shouldDisplayWelcomeMessageOfDisplay() {
+    public void shouldReturnWelcomeMessage() {
         WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome to Bangalore Public Library");
-        welcomeMessage.display();
-        assertEquals("Welcome to Bangalore Public Library\n", outContent.toString());
+
+        assertEquals("Welcome to Bangalore Public Library", welcomeMessage.toString());
     }
 }
