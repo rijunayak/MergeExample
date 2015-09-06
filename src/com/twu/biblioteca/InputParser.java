@@ -13,6 +13,8 @@ public class InputParser {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(bookList);
+        } else if(input.equals("2")) {
+            menuItem = new QuitMenuItem();
         }
         return menuItem;
     }

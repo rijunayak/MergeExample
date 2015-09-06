@@ -15,4 +15,20 @@ public class InputParserTest {
 
         assertEquals(listBooksMenuItem.getClass(), inputParser.parseInput(bookList).getClass());
     }
+
+    @Test
+    public void shouldReturnInvalidMessageOnInvalidInput() {
+        InputParser inputParser = new InputParser("Not a command");
+        BookList bookList = mock(BookList.class);
+
+        assertEquals(InvalidMenuItem.class, inputParser.parseInput(bookList).getClass());
+    }
+
+    @Test
+    public void shouldReturnQuittingAppMessageOnTwoAsInput() {
+        InputParser inputParser = new InputParser("2");
+        BookList bookList = mock(BookList.class);
+
+        assertEquals(QuitMenuItem.class, inputParser.parseInput(bookList).getClass());
+    }
 }

@@ -16,12 +16,13 @@ public class BibliotecaApp {
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
         BookList bookList = new BookList(listOfBooks);
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
-        ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem));
+        QuitMenuItem quitMenuItem = new QuitMenuItem();
+        ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, quitMenuItem));
         MainMenu mainMenu = new MainMenu(listOfMenuItems);
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
         ConsoleInput consoleInput = new ConsoleInput();
         InputParser inputParser = new InputParser("");
-        while(true) {
+        while(!inputParser.parseInput(bookList).toString().equals("Quit")) {
             consoleDisplayMenu.display();
             System.out.print("Enter an option : ");
             inputParser = new InputParser(consoleInput.getInput());
