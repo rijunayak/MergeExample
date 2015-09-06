@@ -23,4 +23,16 @@ public class MainMenuTest {
 
         assertEquals("1. Option 1\n2. Option 2\n", mainMenu.toString());
     }
+
+    @Test
+    public void shouldReturnRightStringOnMenuSelection() {
+        MenuItem menuItem1 = mock(MenuItem.class);
+        MenuItem menuItem2 = mock(MenuItem.class);
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(menuItem1, menuItem2));
+        MainMenu mainMenu = new MainMenu(menuItems);
+
+        when(menuItem2.doOperation()).thenReturn("Option 2 Selected.");
+
+        assertEquals("Option 2 Selected.", mainMenu.selectedMenuItem(menuItem2));
+    }
 }
