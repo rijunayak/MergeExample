@@ -10,6 +10,6 @@ public class BookTest {
     public void specDisplayingABook() {
         Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
 
-        assertEquals(String.format("%23s%23s%23d", "Three Little Pigs", "James Halliwell-Phillipps", 1886), book.toString());
+        assertEquals(String.format("%40s%40s%40d", "Three Little Pigs", "James Halliwell-Phillipps", 1886), book.toString());
     }
 }

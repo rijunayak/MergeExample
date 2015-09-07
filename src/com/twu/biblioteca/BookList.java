@@ -14,8 +14,8 @@ public class BookList {
     @Override
     public String toString() {
         String listOfBooks = "";
-        listOfBooks += String.format("\n%23s%23s%23s\n", "Title", "Author", "Year Of Publication");
-        for(int i = 0; i < 69; i++)
+        listOfBooks += String.format("\n%40s%40s%40s\n", "Title", "Author", "Year Of Publication");
+        for(int i = 0; i < 120; i++)
             listOfBooks += "-";
         listOfBooks += "\n";
         for(int i = 0; i < bookList.size(); i++) {

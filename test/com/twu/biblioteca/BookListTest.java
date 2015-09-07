@@ -18,17 +18,17 @@ public class BookListTest {
         Book book3 = mock(Book.class);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
         BookList bookList = new BookList(listOfBooks);
-        String sixtyNineDashes = "";
-        for(int i = 0; i < 69; i++) {
-            sixtyNineDashes += "-";
+        String oneTwentyDashes = "";
+        for(int i = 0; i < 120; i++) {
+            oneTwentyDashes += "-";
         }
 
-        when(book1.toString()).thenReturn(String.format("%23s%23s%23d", "Three Little Pigs", "James Halliwell-Phillipps", 1886));
-        when(book2.toString()).thenReturn(String.format("%23s%23s%23d", "Clifford, The Big Red Dog", "Norman Bridwell", 1963));
-        when(book3.toString()).thenReturn(String.format("%23s%23s%23d", "Cinderella", "Giambattista Basile", 1634));
+        when(book1.toString()).thenReturn(String.format("%40s%40s%40d", "Three Little Pigs", "James Halliwell-Phillipps", 1886));
+        when(book2.toString()).thenReturn(String.format("%40s%40s%40d", "Clifford, The Big Red Dog", "Norman Bridwell", 1963));
+        when(book3.toString()).thenReturn(String.format("%40s%40s%40d", "Cinderella", "Giambattista Basile", 1634));
 
-        assertEquals(String.format("\n%23s%23s%23s\n", "Title", "Author", "Year Of Publication") +
-                sixtyNineDashes + "\n" +
+        assertEquals(String.format("\n%40s%40s%40s\n", "Title", "Author", "Year Of Publication") +
+                oneTwentyDashes + "\n" +
                 book1.toString() + "\n" +
                 book2.toString() + "\n" +
                 book3.toString() + "\n", bookList.toString());
