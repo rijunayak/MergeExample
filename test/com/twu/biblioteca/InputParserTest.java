@@ -13,7 +13,7 @@ public class InputParserTest {
         BookList bookList = mock(BookList.class);
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
 
-        assertEquals(listBooksMenuItem.getClass(), inputParser.parseInput(bookList).getClass());
+        assertEquals(listBooksMenuItem.getClass(), inputParser.parseMainMenuOptionInput(bookList).getClass());
     }
 
     @Test
@@ -21,7 +21,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("Not a command");
         BookList bookList = mock(BookList.class);
 
-        assertEquals(InvalidMenuItem.class, inputParser.parseInput(bookList).getClass());
+        assertEquals(InvalidMenuItem.class, inputParser.parseMainMenuOptionInput(bookList).getClass());
     }
 
     @Test
@@ -29,6 +29,6 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("2");
         BookList bookList = mock(BookList.class);
 
-        assertEquals(QuitMenuItem.class, inputParser.parseInput(bookList).getClass());
+        assertEquals(QuitMenuItem.class, inputParser.parseMainMenuOptionInput(bookList).getClass());
     }
 }

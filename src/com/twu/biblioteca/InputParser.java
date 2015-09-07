@@ -9,7 +9,7 @@ public class InputParser {
         this.input = input;
     }
 
-    public MenuItem parseInput(BookList bookList) {
+    public MenuItem parseMainMenuOptionInput(BookList bookList) {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(bookList);

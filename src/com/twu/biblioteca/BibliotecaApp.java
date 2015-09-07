@@ -22,11 +22,11 @@ public class BibliotecaApp {
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
         ConsoleInput consoleInput = new ConsoleInput();
         InputParser inputParser = new InputParser("");
-        while(!inputParser.parseInput(bookList).toString().equals("Quit")) {
+        while(!inputParser.parseMainMenuOptionInput(bookList).toString().equals("Quit")) {
             consoleDisplayMenu.display();
             System.out.print("Enter an option : ");
             inputParser = new InputParser(consoleInput.getInput());
-            consoleDisplay = new ConsoleDisplay(mainMenu.selectedMenuItem(inputParser.parseInput(bookList)));
+            consoleDisplay = new ConsoleDisplay(mainMenu.selectedMenuItem(inputParser.parseMainMenuOptionInput(bookList)));
             consoleDisplay.display();
         }
     }
