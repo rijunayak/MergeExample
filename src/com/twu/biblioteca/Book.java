@@ -12,9 +12,12 @@ public class Book {
         this.yearOfPublication = yearOfPublication;
     }
 
-
     @Override
     public String toString() {
         return String.format("%40s%40s%40d", title, author, yearOfPublication);
+    }
+
+    public String getTitle() {
+        return this.title;
     }
 }
