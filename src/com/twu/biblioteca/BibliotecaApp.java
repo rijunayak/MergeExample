@@ -18,7 +18,7 @@ public class BibliotecaApp {
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, quitMenuItem));
-        MainMenu mainMenu = new MainMenu(listOfMenuItems);
+        Menu mainMenu = new Menu(listOfMenuItems);
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
         ConsoleInput consoleInput = new ConsoleInput();
         InputParser inputParser = new InputParser("");

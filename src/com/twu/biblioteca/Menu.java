@@ -3,11 +3,11 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class MainMenu {
+public class Menu {
 
     private ArrayList<MenuItem> menuItems;
 
-    public MainMenu(ArrayList<MenuItem> menuItems) {
+    public Menu(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 
