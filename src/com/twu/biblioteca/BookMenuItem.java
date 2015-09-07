@@ -16,6 +16,6 @@ public class BookMenuItem implements MenuItem {
 
     @Override
     public String doOperation() {
-        return null;
+        return book.toString() + " has been checked out";
     }
 }

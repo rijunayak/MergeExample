@@ -17,4 +17,14 @@ public class BookMenuItemTest {
 
         assertEquals(String.format("%40s%40s%40d", "Three Little Pigs", "James Halliwell-Phillipps", 1886), bookMenuItem.toString());
     }
+
+    @Test
+    public void shouldShowCheckoutMessageOnSelectionOfItem() {
+        Book book = mock(Book.class);
+        BookMenuItem bookMenuItem = new BookMenuItem(book);
+
+        when(book.toString()).thenReturn(String.format("%40s%40s%40d", "Three Little Pigs", "James Halliwell-Phillipps", 1886));
+
+        assertEquals(String.format("%40s%40s%40d", "Three Little Pigs", "James Halliwell-Phillipps", 1886) + " has been checked out", bookMenuItem.doOperation());
+    }
 }
