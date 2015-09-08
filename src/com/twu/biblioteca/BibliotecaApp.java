@@ -16,8 +16,9 @@ public class BibliotecaApp {
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
         BookList bookList = new BookList(listOfBooks);
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(bookList);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, quitMenuItem));
+        ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, checkOutBookMenuItem, quitMenuItem));
         Menu mainMenu = new Menu(listOfMenuItems);
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
         ConsoleInput consoleInput = new ConsoleInput();
