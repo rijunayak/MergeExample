@@ -31,6 +31,21 @@ public class BookTest {
     }
 
     @Test
+    public void shouldReturnTrueOnComparingWithItself() {
+        Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+
+        assertEquals(book, book);
+    }
+
+    @Test
+    public void shouldReturnFalseIfComparingBookIsNull() {
+        Book book = new Book(null, "James Halliwell-Phillipps", 1886);
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+
+        assertNotEquals(book, book1);
+    }
+
+    @Test
     public void shouldReturnTrueOnComparingBookWithSameTitleOnly() {
         Book book1 = new Book("Three Little Pigs", "James Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
