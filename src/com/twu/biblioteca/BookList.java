@@ -23,4 +23,8 @@ public class BookList {
         }
         return listOfBooks;
     }
+
+    public boolean checkOut(Book book) {
+        return bookList.remove(book);
+    }
 }

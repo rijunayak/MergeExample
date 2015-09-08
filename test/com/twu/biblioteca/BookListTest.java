@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -32,5 +33,16 @@ public class BookListTest {
                 book1.toString() + "\n" +
                 book2.toString() + "\n" +
                 book3.toString() + "\n", bookList.toString());
+    }
+
+    @Test
+    public void shouldSuccessfullyCheckOut() {
+        Book book1 = mock(Book.class);
+        Book book2 = mock(Book.class);
+        Book book3 = mock(Book.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+        BookList bookList = new BookList(listOfBooks);
+
+        assertTrue(bookList.checkOut(book1));
     }
 }
