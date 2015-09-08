@@ -24,8 +24,11 @@ public class Book {
 
         Book thatBook = (Book) that;
 
-        return !(title != null ? !title.equals(thatBook.title) : thatBook.title != null);
-
+        if(title != null && thatBook.title != null) {
+            return title.equals(thatBook.title);
+        } else {
+            return false;
+        }
     }
 
     @Override

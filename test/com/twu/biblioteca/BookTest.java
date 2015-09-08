@@ -16,10 +16,11 @@ public class BookTest {
     }
 
     @Test
-    public void shouldReturnFalseOnComparingWithNullObject() {
-        Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+    public void shouldReturnFalseOnComparingWithNullTitle() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book(null, "James Halliwell-Phillipps", 1886);
 
-        assertNotEquals(book, null);
+        assertNotEquals(book1, book2);
     }
 
     @Test
