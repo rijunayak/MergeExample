@@ -20,4 +20,20 @@ public class Book {
     public String getTitle() {
         return this.title;
     }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+
+        Book thatBook = (Book) that;
+
+        return !(title != null ? !title.equals(thatBook.title) : thatBook.title != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return title != null ? title.hashCode() : 0;
+    }
 }
