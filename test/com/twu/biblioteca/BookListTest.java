@@ -37,12 +37,11 @@ public class BookListTest {
 
     @Test
     public void shouldSuccessfullyCheckOut() {
-        Book book1 = mock(Book.class);
-        Book book2 = mock(Book.class);
-        Book book3 = mock(Book.class);
-        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Pigs", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
         BookList bookList = new BookList(listOfBooks);
 
-        assertTrue(bookList.checkOut(book1));
+        assertTrue(bookList.checkOut(book2));
     }
 }
