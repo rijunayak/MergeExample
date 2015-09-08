@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.mockito.Mockito.mock;
 
 public class BookTest {
 
@@ -19,6 +20,14 @@ public class BookTest {
         Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
 
         assertNotEquals(book, null);
+    }
+
+    @Test
+    public void shouldReturnFalseWhenComparedWithDifferentClass() {
+        Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        BookList bookList = mock(BookList.class);
+
+        assertNotEquals(book, bookList);
     }
 
     @Test
