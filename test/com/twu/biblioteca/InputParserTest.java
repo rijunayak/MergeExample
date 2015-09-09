@@ -10,33 +10,33 @@ public class InputParserTest {
     @Test
     public void shouldReturnListBooksMenuItemOnOneAsInput() {
         InputParser inputParser = new InputParser("1");
-        BookList bookList = mock(BookList.class);
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
+        Library library = mock(Library.class);
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
 
-        assertEquals(listBooksMenuItem.getClass(), inputParser.parseMainMenuOptionInput(bookList).getClass());
+        assertEquals(listBooksMenuItem.getClass(), inputParser.parseMainMenuOptionInput(library).getClass());
     }
 
     @Test
     public void shouldReturnInvalidMessageOnInvalidInput() {
         InputParser inputParser = new InputParser("Not a command");
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
 
-        assertEquals(InvalidMenuItem.class, inputParser.parseMainMenuOptionInput(bookList).getClass());
+        assertEquals(InvalidMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
     }
 
     @Test
     public void shouldReturnQuittingAppMessageOnTwoAsInput() {
         InputParser inputParser = new InputParser("3");
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
 
-        assertEquals(QuitMenuItem.class, inputParser.parseMainMenuOptionInput(bookList).getClass());
+        assertEquals(QuitMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
     }
 
     @Test
     public void shouldReturnCheckOutMenuItemOnTwoAsInput() {
         InputParser inputParser = new InputParser("2");
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
 
-        assertEquals(CheckOutBookMenuItem.class, inputParser.parseMainMenuOptionInput(bookList).getClass());
+        assertEquals(CheckOutBookMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
     }
 }

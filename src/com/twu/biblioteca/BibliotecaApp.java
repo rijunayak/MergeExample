@@ -14,20 +14,20 @@ public class BibliotecaApp {
         Book book2 = new Book("Clifford, The Big Red Dog", "Norman Bridwell", 1963);
         Book book3 = new Book("Cinderella", "Giambattista Basile", 1634);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
-        BookList bookList = new BookList(listOfBooks);
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(bookList);
+        Library library = new Library(listOfBooks);
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, checkOutBookMenuItem, quitMenuItem));
         Menu mainMenu = new Menu(listOfMenuItems);
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
         ConsoleInput consoleInput = new ConsoleInput();
         InputParser inputParser = new InputParser("");
-        while(!inputParser.parseMainMenuOptionInput(bookList).toString().equals("Quit")) {
+        while(!inputParser.parseMainMenuOptionInput(library).toString().equals("Quit")) {
             consoleDisplayMenu.display();
             System.out.print("Enter an option : ");
             inputParser = new InputParser(consoleInput.getInput());
-            consoleDisplay = new ConsoleDisplay(mainMenu.selectedMenuItem(inputParser.parseMainMenuOptionInput(bookList)));
+            consoleDisplay = new ConsoleDisplay(mainMenu.selectedMenuItem(inputParser.parseMainMenuOptionInput(library)));
             consoleDisplay.display();
         }
     }

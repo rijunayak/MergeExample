@@ -5,7 +5,7 @@ public class QuitMenuItem implements MenuItem {
 
     @Override
     public String doOperation() {
-        return "Quitting App";
+        return "";
     }
 
     @Override

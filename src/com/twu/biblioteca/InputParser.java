@@ -9,12 +9,12 @@ public class InputParser {
         this.input = input;
     }
 
-    public MenuItem parseMainMenuOptionInput(BookList bookList) {
+    public MenuItem parseMainMenuOptionInput(Library library) {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
-            menuItem = new ListBooksMenuItem(bookList);
+            menuItem = new ListBooksMenuItem(library);
         } else if(input.equals("2")) {
-            menuItem = new CheckOutBookMenuItem(bookList);
+            menuItem = new CheckOutBookMenuItem(library);
         } else if(input.equals("3")) {
             menuItem = new QuitMenuItem();
         }

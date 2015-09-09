@@ -17,8 +17,8 @@ public class CheckOutBookMenuItemTest {
 
     @Test
     public void shouldReturnMenuItemNameInMainMenu() {
-        BookList bookList = mock(BookList.class);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(bookList);
+        Library library = mock(Library.class);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
 
         assertEquals("Checkout a Book", checkOutBookMenuItem.toString());
     }
@@ -35,20 +35,20 @@ public class CheckOutBookMenuItemTest {
 
     @Test
     public void shouldReturnCheckedOutBook() {
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(bookList);
-        when(bookList.checkOut(argumentCaptor.capture())).thenReturn(true);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
+        when(library.checkOut(argumentCaptor.capture())).thenReturn(true);
 
         assertEquals("Thank you! Enjoy the book.", checkOutBookMenuItem.doOperation());
     }
 
     @Test
     public void shouldReturnInvalidBookMessageForUnavailableBook() {
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(bookList);
-        when(bookList.checkOut(argumentCaptor.capture())).thenReturn(false);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
+        when(library.checkOut(argumentCaptor.capture())).thenReturn(false);
 
         assertEquals("That book does not exist!", checkOutBookMenuItem.doOperation());
     }

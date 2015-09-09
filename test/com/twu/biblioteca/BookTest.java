@@ -33,9 +33,9 @@ public class BookTest {
     @Test
     public void shouldReturnFalseWhenComparedWithDifferentClass() {
         Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
-        BookList bookList = mock(BookList.class);
+        Library library = mock(Library.class);
 
-        assertNotEquals(book, bookList);
+        assertNotEquals(book, library);
     }
 
     @Test

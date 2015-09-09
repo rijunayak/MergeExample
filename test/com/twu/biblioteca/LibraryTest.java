@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BookListTest {
+public class LibraryTest {
 
     @Test
     public void shouldDisplayWelcomeMessageOfDisplay() {
@@ -18,7 +19,7 @@ public class BookListTest {
         Book book2 = mock(Book.class);
         Book book3 = mock(Book.class);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
-        BookList bookList = new BookList(listOfBooks);
+        Library library = new Library(listOfBooks);
         String oneTwentyDashes = "";
         for(int i = 0; i < 120; i++) {
             oneTwentyDashes += "-";
@@ -32,7 +33,7 @@ public class BookListTest {
                 oneTwentyDashes + "\n" +
                 book1.toString() + "\n" +
                 book2.toString() + "\n" +
-                book3.toString() + "\n", bookList.toString());
+                book3.toString() + "\n", library.toString());
     }
 
     @Test
@@ -40,8 +41,18 @@ public class BookListTest {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
-        BookList bookList = new BookList(listOfBooks);
+        Library library = new Library(listOfBooks);
 
-        assertTrue(bookList.checkOut(book2));
+        assertTrue(library.checkOut(book2));
+    }
+
+    @Test
+    public void shouldNotCheckOutForInvalidBook() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Piglets", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
+        Library library = new Library(listOfBooks);
+
+        assertFalse(library.checkOut(book2));
     }
 }

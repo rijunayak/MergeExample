@@ -1,11 +1,12 @@
+//A check out book menu item has a library from which it can check out a book
 package com.twu.biblioteca;
 
 public class CheckOutBookMenuItem implements MenuItem {
 
-    private BookList bookList;
+    private Library library;
 
-    public CheckOutBookMenuItem(BookList bookList) {
-        this.bookList = bookList;
+    public CheckOutBookMenuItem(Library library) {
+        this.library = library;
     }
 
     @Override
@@ -17,12 +18,12 @@ public class CheckOutBookMenuItem implements MenuItem {
     public String doOperation() {
         String bookToCheckout = "";
         ConsoleInput consoleInput = new ConsoleInput();
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay("Enter a book checkout : ");
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay("\nEnter a book checkout : ");
         consoleDisplay.display();
         bookToCheckout = consoleInput.getInput();
-        if(!bookList.checkOut(new Book(bookToCheckout, null, 0))) {
-            return "That book does not exist!";
+        if(!library.checkOut(new Book(bookToCheckout, null, 0))) {
+            return "\nThat book does not exist!\n";
         }
-        return "Thank you! Enjoy the book.";
+        return "\nThank you! Enjoy the book.\n";
     }
 }

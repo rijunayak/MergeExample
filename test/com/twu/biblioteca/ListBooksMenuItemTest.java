@@ -10,22 +10,22 @@ public class ListBooksMenuItemTest {
 
     @Test
     public void shoudldReturnMenuItem() {
-        BookList bookList = mock(BookList.class);
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
+        Library library = mock(Library.class);
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
 
         assertEquals("List all Books", listBooksMenuItem.toString());
     }
 
     @Test
     public void shouldReturnTheListOfBooks() {
-        BookList bookList = mock(BookList.class);
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(bookList);
+        Library library = mock(Library.class);
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
         String oneTwentyDashes = "";
         for(int i = 0; i < 120; i++) {
             oneTwentyDashes += "-";
         }
 
-        when(bookList.toString()).thenReturn(
+        when(library.toString()).thenReturn(
                 String.format("%23s%23s%23s\n", "Title", "Author", "Year Of Publication") +
                         oneTwentyDashes + "\n" +
                         String.format("%23s%23s%23d", "Three Little Pigs", "James Halliwell-Phillipps", 1886) + "\n" +
@@ -33,6 +33,6 @@ public class ListBooksMenuItemTest {
                         String.format("%23s%23s%23d", "Cinderella", "Giambattista Basile", 1634) + "\n"
         );
 
-        assertEquals(bookList.toString(), listBooksMenuItem.doOperation());
+        assertEquals(library.toString(), listBooksMenuItem.doOperation());
     }
 }

@@ -3,15 +3,15 @@ package com.twu.biblioteca;
 
 public class ListBooksMenuItem implements MenuItem {
 
-    private BookList bookList;
+    private Library library;
 
-    public ListBooksMenuItem(BookList bookList) {
-        this.bookList = bookList;
+    public ListBooksMenuItem(Library library) {
+        this.library = library;
     }
 
     @Override
     public String doOperation() {
-        return bookList.toString();
+        return library.toString();
     }
 
     @Override
