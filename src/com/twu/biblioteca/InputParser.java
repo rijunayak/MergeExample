@@ -16,6 +16,8 @@ public class InputParser {
         } else if(input.equals("2")) {
             menuItem = new CheckOutBookMenuItem(library);
         } else if(input.equals("3")) {
+            menuItem = new CheckInBookMenuItem(library);
+        } else if(input.equals("4")) {
             menuItem = new QuitMenuItem();
         }
         return menuItem;
