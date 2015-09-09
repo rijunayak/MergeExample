@@ -39,6 +39,16 @@ public class CheckInBookMenuItemTest {
         assertEquals("\nThank you for returning the book.\n", checkInBookMenuItem.doOperation());
     }
 
+    @Test
+    public void shouldNotCheckInAnInvalidBook() {
+        Library library = mock(Library.class);
+        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(library);
+        when(library.checkIn(argumentCaptor.capture())).thenReturn(false);
+
+        assertEquals("\nThat is not a valid book to return.\n", checkInBookMenuItem.doOperation());
+    }
+
     @After
     public void cleanUpStreams() {
         System.setIn(System.in);
