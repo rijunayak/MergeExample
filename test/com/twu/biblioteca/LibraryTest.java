@@ -76,6 +76,6 @@ public class LibraryTest {
         Library library = new Library(listOfBooks);
         library.checkOut(book2);
 
-        assertFalse(library.checkOut(book3));
+        assertFalse(library.checkIn(book3));
     }
 }
