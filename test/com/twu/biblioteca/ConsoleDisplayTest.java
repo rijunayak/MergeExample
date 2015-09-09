@@ -18,11 +18,6 @@ public class ConsoleDisplayTest {
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
-    public void cleanUpStreams() {
-        System.setOut(System.out);
-    }
-
     @Test
     public void checkIfDisplayingString() {
         ConsoleDisplay consoleDisplay = new ConsoleDisplay("Hi, I'm Riju");
@@ -30,5 +25,10 @@ public class ConsoleDisplayTest {
         consoleDisplay.display();
 
         assertEquals("Hi, I'm Riju\n", outContent.toString());
+    }
+
+    @After
+    public void cleanUpStreams() {
+        System.setOut(System.out);
     }
 }
