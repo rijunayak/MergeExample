@@ -40,7 +40,7 @@ public class CheckOutBookMenuItemTest {
         CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
         when(library.checkOut(argumentCaptor.capture())).thenReturn(true);
 
-        assertEquals("Thank you! Enjoy the book.", checkOutBookMenuItem.doOperation());
+        assertEquals("\nThank you! Enjoy the book.\n", checkOutBookMenuItem.doOperation());
     }
 
     @Test
@@ -50,6 +50,6 @@ public class CheckOutBookMenuItemTest {
         CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
         when(library.checkOut(argumentCaptor.capture())).thenReturn(false);
 
-        assertEquals("That book does not exist!", checkOutBookMenuItem.doOperation());
+        assertEquals("\nThat book does not exist!\n", checkOutBookMenuItem.doOperation());
     }
 }

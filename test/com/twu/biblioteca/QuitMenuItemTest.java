@@ -10,7 +10,7 @@ public class QuitMenuItemTest {
     public void shouldEnsureQuitMenuItemReturnsQuittingAppTheProgramOnSelection() {
         QuitMenuItem quitMenuItem = new QuitMenuItem();
 
-        assertEquals("Quitting App", quitMenuItem.doOperation());
+        assertEquals("", quitMenuItem.doOperation());
     }
 
     @Test
