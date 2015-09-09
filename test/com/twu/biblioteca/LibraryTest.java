@@ -55,4 +55,27 @@ public class LibraryTest {
 
         assertFalse(library.checkOut(book2));
     }
+
+    @Test
+    public void shouldSuccessfullyCheckIn() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Pigs", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
+        Library library = new Library(listOfBooks);
+        library.checkOut(book2);
+
+        assertTrue(library.checkIn(book2));
+    }
+
+    @Test
+    public void shouldNotCheckInForInvalidBook() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Pigs", null, 0);
+        Book book3 = new Book("Three Little Piglets", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
+        Library library = new Library(listOfBooks);
+        library.checkOut(book2);
+
+        assertFalse(library.checkOut(book3));
+    }
 }

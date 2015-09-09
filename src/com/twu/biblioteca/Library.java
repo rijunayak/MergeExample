@@ -34,4 +34,13 @@ public class Library {
         }
         return listOfAvailableBooks.remove(book);
     }
+
+    public boolean checkIn(Book book) {
+        Book bookToCheckin = null;
+        if(listOfUnavailableBooks.contains(book)) {
+            bookToCheckin = listOfUnavailableBooks.get(listOfUnavailableBooks.indexOf(book));
+            listOfAvailableBooks.add(bookToCheckin);
+        }
+        return listOfUnavailableBooks.remove(book);
+    }
 }
