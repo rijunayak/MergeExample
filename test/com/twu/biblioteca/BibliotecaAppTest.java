@@ -26,7 +26,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldStartAndEndAppropriately() {
-        exit.expectSystemExitWithStatus(0);
+        exit.expectSystemExit();
         WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
         LibraryFactory libraryFactory = new LibraryFactory();
         MenuFactory menuFactory = new MenuFactory();

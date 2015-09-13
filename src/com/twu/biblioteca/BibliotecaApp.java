@@ -30,12 +30,14 @@ public class BibliotecaApp {
     private void repeatThroughMenu() {
         ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(menu);
         ConsoleInput consoleInput = new ConsoleInput();
-        InputParser inputParser = new InputParser("");
-        while(!inputParser.parseMainMenuOptionInput(library).toString().equals("Quit")) {
+
+        while(true) {
             consoleDisplayMenu.display();
-            inputParser = new InputParser(consoleInput.getInput());
+            InputParser inputParser = new InputParser(consoleInput.getInput());
             ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(inputParser.parseMainMenuOptionInput(library)));
             consoleDisplayMenuItemOperation.display();
+            if(inputParser.parseMainMenuOptionInput(library).toString().equals("Quit"))
+                System.exit(0);
         }
     }
 }

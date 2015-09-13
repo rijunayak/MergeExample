@@ -8,15 +8,11 @@ import static org.junit.Assert.assertEquals;
 
 public class QuitMenuItemTest {
 
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
     @Test
     public void shouldEnsureQuitMenuItemReturnsQuittingAppTheProgramOnSelection() {
-        exit.expectSystemExitWithStatus(0);
-
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        quitMenuItem.doOperation();
+
+        assertEquals("", quitMenuItem.doOperation());
     }
 
     @Test
