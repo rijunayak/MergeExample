@@ -1,16 +1,22 @@
 package com.twu.biblioteca;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import static org.junit.Assert.assertEquals;
 
 public class QuitMenuItemTest {
 
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+
     @Test
     public void shouldEnsureQuitMenuItemReturnsQuittingAppTheProgramOnSelection() {
-        QuitMenuItem quitMenuItem = new QuitMenuItem();
+        exit.expectSystemExitWithStatus(0);
 
-        assertEquals("", quitMenuItem.doOperation());
+        QuitMenuItem quitMenuItem = new QuitMenuItem();
+        quitMenuItem.doOperation();
     }
 
     @Test

@@ -1,35 +1,41 @@
 //The BibliotecaApp provides an entry point to start the application
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class BibliotecaApp {
 
+    private WelcomeMessage welcomeMessage;
+    private Library library;
+    private Menu menu;
+
+    public BibliotecaApp(WelcomeMessage welcomeMessage, Library library, Menu menu) {
+        this.welcomeMessage = welcomeMessage;
+        this.library = library;
+        this.menu = menu;
+    }
+
     public static void main(String[] args) {
-        WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome to Bangalore Public Library");
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay(welcomeMessage);
-        consoleDisplay.display();
-        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
-        Book book2 = new Book("Clifford, The Big Red Dog", "Norman Bridwell", 1963);
-        Book book3 = new Book("Cinderella", "Giambattista Basile", 1634);
-        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
-        Library library = new Library(listOfBooks);
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(library);
-        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(library);
-        QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> listOfMenuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, checkOutBookMenuItem, checkInBookMenuItem, quitMenuItem));
-        Menu mainMenu = new Menu(listOfMenuItems);
-        ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(mainMenu);
+        WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
+        LibraryFactory libraryFactory = new LibraryFactory();
+        MenuFactory menuFactory = new MenuFactory();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu());
+        bibliotecaApp.start();
+    }
+
+    public void start() {
+        ConsoleDisplay consoleDisplayWelcomeMessage = new ConsoleDisplay(welcomeMessage);
+        consoleDisplayWelcomeMessage.display();
+        repeatThroughMenu();
+    }
+
+    private void repeatThroughMenu() {
+        ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(menu);
         ConsoleInput consoleInput = new ConsoleInput();
         InputParser inputParser = new InputParser("");
         while(!inputParser.parseMainMenuOptionInput(library).toString().equals("Quit")) {
             consoleDisplayMenu.display();
-            System.out.print("Enter an option : ");
             inputParser = new InputParser(consoleInput.getInput());
-            consoleDisplay = new ConsoleDisplay(mainMenu.selectedMenuItem(inputParser.parseMainMenuOptionInput(library)));
-            consoleDisplay.display();
+            ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(inputParser.parseMainMenuOptionInput(library)));
+            consoleDisplayMenuItemOperation.display();
         }
     }
 }

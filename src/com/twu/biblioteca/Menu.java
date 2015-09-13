@@ -17,6 +17,7 @@ public class Menu {
         for(int i = 0; i < menuItems.size(); i++) {
             mainMenu += Integer.toString(i + 1) + ". " + menuItems.get(i).toString() + "\n";
         }
+        mainMenu += "Enter an option : ";
         return mainMenu;
     }
 

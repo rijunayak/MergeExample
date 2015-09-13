@@ -5,6 +5,7 @@ public class QuitMenuItem implements MenuItem {
 
     @Override
     public String doOperation() {
+        System.exit(0);
         return "";
     }
 

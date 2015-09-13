@@ -21,7 +21,7 @@ public class MenuTest {
         when(menuItem1.toString()).thenReturn("Option 1");
         when(menuItem2.toString()).thenReturn("Option 2");
 
-        assertEquals("1. Option 1\n2. Option 2\n", mainMenu.toString());
+        assertEquals("1. Option 1\n2. Option 2\nEnter an option : ", mainMenu.toString());
     }
 
     @Test
