@@ -1,4 +1,4 @@
-// A Library has a list of books which it can check out, return and display
+// A Library has a list of books and movies which it can check out, return books and display
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
