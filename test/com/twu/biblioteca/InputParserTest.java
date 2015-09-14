@@ -26,7 +26,7 @@ public class InputParserTest {
 
     @Test
     public void shouldReturnQuittingAppMessageOnTwoAsInput() {
-        InputParser inputParser = new InputParser("5");
+        InputParser inputParser = new InputParser("6");
         Library library = mock(Library.class);
 
         assertEquals(QuitMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
@@ -54,5 +54,13 @@ public class InputParserTest {
         Library library = mock(Library.class);
 
         assertEquals(CheckInBookMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckOutMovieMenuItemOnTwoAsInput() {
+        InputParser inputParser = new InputParser("5");
+        Library library = mock(Library.class);
+
+        assertEquals(CheckOutMovieMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
     }
 }

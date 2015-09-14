@@ -13,7 +13,7 @@ import java.io.PrintStream;
 public class BibliotecaAppTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayInputStream inContent = new ByteArrayInputStream("5".getBytes());
+    private final ByteArrayInputStream inContent = new ByteArrayInputStream("6".getBytes());
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
