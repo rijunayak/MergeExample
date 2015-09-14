@@ -19,6 +19,30 @@ public class Movie {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("%40s%40d%40s%40s", name, year, director, rating);
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+
+        Movie thatMovie = (Movie) that;
+
+        if(name != null && thatMovie.name != null) {
+            return name.equals(thatMovie.name);
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
     private boolean isNumberBetweenOneAndTen(String rating) {
         if(isNumeric(rating)) {
             int ratingNumber = Integer.parseInt(rating);
@@ -36,10 +60,5 @@ public class Movie {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%40s%40d%40s%40s", name, year, director, rating);
     }
 }
