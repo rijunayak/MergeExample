@@ -12,10 +12,11 @@ public class MenuFactoryTest {
     @Test
     public void shouldCreateADefaultMenu() {
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(null);
+        ListMoviesMenuItem listMoviesMenuItem = new ListMoviesMenuItem(null);
         CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
         CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, checkOutBookMenuItem, checkInBookMenuItem, quitMenuItem));
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutBookMenuItem, checkInBookMenuItem, quitMenuItem));
         Menu menu = new Menu(menuItems);
         MenuFactory menuFactory = new MenuFactory();
 
