@@ -7,11 +7,9 @@ import java.util.Arrays;
 public class MenuFactory {
 
     public Menu getDefaultMenu() {
-        LibraryFactory libraryFactory = new LibraryFactory();
-        Library defaultLibrary = libraryFactory.getDefaultLibrary();
-        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(defaultLibrary);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(defaultLibrary);
-        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(defaultLibrary);
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(null);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
+        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
         ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, checkOutBookMenuItem, checkInBookMenuItem, quitMenuItem));
 

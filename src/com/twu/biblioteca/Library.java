@@ -1,4 +1,4 @@
-//A BookList has a list of books which it can convert to a String
+// A Library has a list of books which it can check out, return and display
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

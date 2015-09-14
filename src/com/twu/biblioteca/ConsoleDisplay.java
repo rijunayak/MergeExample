@@ -5,7 +5,7 @@ public class ConsoleDisplay implements Display {
 
     private Object displayable;
 
-    public ConsoleDisplay(Object  displayable) {
+    public ConsoleDisplay(Object displayable) {
         this.displayable = displayable;
     }
 
