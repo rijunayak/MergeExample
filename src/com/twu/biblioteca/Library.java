@@ -32,6 +32,18 @@ public class Library {
         return listOfAvailableBooks;
     }
 
+    public String listMovies() {
+        String movies = "";
+        movies += String.format("\n%40s%40s%40s%40s\n", "Name", "Year Of Release", "Director", "Rating");
+        for(int i = 0; i < 160; i++)
+            movies += "-";
+        movies += "\n";
+        for(Movie movie : this.movies) {
+            movies += movie + "\n";
+        }
+        return movies;
+    }
+
     public boolean checkOutBook(Book book) {
         Book bookToCheckout = null;
         if(listOfAvailableBooks.contains(book)) {

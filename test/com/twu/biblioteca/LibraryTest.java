@@ -41,6 +41,33 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldDisplayMovies() {
+        Book book1 = mock(Book.class);
+        Book book2 = mock(Book.class);
+        Book book3 = mock(Book.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        Movie movie3 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
+        Library library = new Library(listOfBooks, movies);
+        String oneSixtyDashes = "";
+        for(int i = 0; i < 160; i++) {
+            oneSixtyDashes += "-";
+        }
+
+        when(movie1.toString()).thenReturn(String.format("%40s%40d%40s%40s", "Three Little Pigs", 1933, "Burt Gillett", "1"));
+        when(movie2.toString()).thenReturn(String.format("%40s%40d%40s%40s", "Clifford, The Big Red Dog", 2000, "John Over", "1"));
+        when(movie3.toString()).thenReturn(String.format("%40s%40d%40s%40s", "Cinderella", 1950, "Clyde Geronim", "1"));
+
+        assertEquals(String.format("\n%40s%40s%40s%40s\n", "Name", "Year Of Release", "Director", "Rating") +
+                oneSixtyDashes + "\n" +
+                movie1.toString() + "\n" +
+                movie2.toString() + "\n" +
+                movie3.toString() + "\n", library.listMovies());
+    }
+
+    @Test
     public void shouldSuccessfullyCheckOut() {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
