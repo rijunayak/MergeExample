@@ -130,9 +130,22 @@ public class LibraryTest {
         ArrayList<Book> books = new ArrayList<Book>(Arrays.asList(book1, book2));
         Movie movie1 = new Movie("Three Little Pigs", 1933, "Burt Gillett", "1");
         Movie movie2 = new Movie("Three Little Pigs", 0, null, null);
-        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1));
         Library library = new Library(books, movies);
 
         assertTrue(library.checkOutMovie(movie2));
+    }
+
+    @Test
+    public void shouldNotCheckOutInvalidMovie() {
+        Book book1 = mock(Book.class);
+        Book book2 = mock(Book.class);
+        ArrayList<Book> books = new ArrayList<Book>(Arrays.asList(book1, book2));
+        Movie movie1 = new Movie("Three Little Pigs", 1933, "Burt Gillett", "1");
+        Movie movie2 = new Movie("Three Little Piglets", 0, null, null);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1));
+        Library library = new Library(books, movies);
+
+        assertFalse(library.checkOutMovie(movie2));
     }
 }
