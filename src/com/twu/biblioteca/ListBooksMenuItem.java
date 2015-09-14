@@ -11,7 +11,7 @@ public class ListBooksMenuItem implements MenuItem {
 
     @Override
     public String doOperation() {
-        return library.toString();
+        return library.listAvailableBooks();
     }
 
     @Override

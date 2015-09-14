@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 public class ListBooksMenuItemTest {
 
     @Test
-    public void shoudldReturnMenuItem() {
+    public void shouldReturnMenuItem() {
         Library library = mock(Library.class);
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
 
@@ -25,7 +25,7 @@ public class ListBooksMenuItemTest {
             oneTwentyDashes += "-";
         }
 
-        when(library.toString()).thenReturn(
+        when(library.listAvailableBooks()).thenReturn(
                 String.format("%23s%23s%23s\n", "Title", "Author", "Year Of Publication") +
                         oneTwentyDashes + "\n" +
                         String.format("%23s%23s%23d", "Three Little Pigs", "James Halliwell-Phillipps", 1886) + "\n" +
@@ -33,6 +33,6 @@ public class ListBooksMenuItemTest {
                         String.format("%23s%23s%23d", "Cinderella", "Giambattista Basile", 1634) + "\n"
         );
 
-        assertEquals(library.toString(), listBooksMenuItem.doOperation());
+        assertEquals(library.listAvailableBooks(), listBooksMenuItem.doOperation());
     }
 }

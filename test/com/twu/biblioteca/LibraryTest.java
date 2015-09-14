@@ -14,12 +14,16 @@ import static org.mockito.Mockito.when;
 public class LibraryTest {
 
     @Test
-    public void shouldDisplayWelcomeMessageOfDisplay() {
+    public void shouldDisplayAvailableListOfBooks() {
         Book book1 = mock(Book.class);
         Book book2 = mock(Book.class);
         Book book3 = mock(Book.class);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
-        Library library = new Library(listOfBooks);
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        Movie movie3 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
+        Library library = new Library(listOfBooks, movies);
         String oneTwentyDashes = "";
         for(int i = 0; i < 120; i++) {
             oneTwentyDashes += "-";
@@ -33,7 +37,7 @@ public class LibraryTest {
                 oneTwentyDashes + "\n" +
                 book1.toString() + "\n" +
                 book2.toString() + "\n" +
-                book3.toString() + "\n", library.toString());
+                book3.toString() + "\n", library.listAvailableBooks());
     }
 
     @Test
@@ -41,7 +45,10 @@ public class LibraryTest {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
-        Library library = new Library(listOfBooks);
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        Library library = new Library(listOfBooks, movies);
 
         assertTrue(library.checkOutBook(book2));
     }
@@ -51,7 +58,10 @@ public class LibraryTest {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Piglets", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
-        Library library = new Library(listOfBooks);
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        Library library = new Library(listOfBooks, movies);
 
         assertFalse(library.checkOutBook(book2));
     }
@@ -61,7 +71,10 @@ public class LibraryTest {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
-        Library library = new Library(listOfBooks);
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        Library library = new Library(listOfBooks, movies);
         library.checkOutBook(book2);
 
         assertTrue(library.checkInBook(book2));
@@ -73,7 +86,10 @@ public class LibraryTest {
         Book book2 = new Book("Three Little Pigs", null, 0);
         Book book3 = new Book("Three Little Piglets", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
-        Library library = new Library(listOfBooks);
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        Library library = new Library(listOfBooks, movies);
         library.checkOutBook(book2);
 
         assertFalse(library.checkInBook(book3));

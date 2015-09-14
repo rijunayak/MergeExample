@@ -7,23 +7,29 @@ public class Library {
 
     private ArrayList<Book> listOfAvailableBooks;
     private ArrayList<Book> listOfUnavailableBooks;
+    private ArrayList<Movie> movies;
 
-    public Library(ArrayList<Book> listOfAvailableBooks) {
+    public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Movie> movies) {
         this.listOfAvailableBooks = listOfAvailableBooks;
         this.listOfUnavailableBooks = new ArrayList<Book>();
+        this.movies = movies;
     }
 
     @Override
     public String toString() {
-        String listOfBooks = "";
-        listOfBooks += String.format("\n%40s%40s%40s\n", "Title", "Author", "Year Of Publication");
+        return "";
+    }
+
+    public String listAvailableBooks() {
+        String listOfAvailableBooks = "";
+        listOfAvailableBooks += String.format("\n%40s%40s%40s\n", "Title", "Author", "Year Of Publication");
         for(int i = 0; i < 120; i++)
-            listOfBooks += "-";
-        listOfBooks += "\n";
-        for(int i = 0; i < listOfAvailableBooks.size(); i++) {
-            listOfBooks += listOfAvailableBooks.get(i) + "\n";
+            listOfAvailableBooks += "-";
+        listOfAvailableBooks += "\n";
+        for(int i = 0; i < this.listOfAvailableBooks.size(); i++) {
+            listOfAvailableBooks += this.listOfAvailableBooks.get(i) + "\n";
         }
-        return listOfBooks;
+        return listOfAvailableBooks;
     }
 
     public boolean checkOutBook(Book book) {
