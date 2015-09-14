@@ -19,4 +19,11 @@ public class MovieTest {
 
         assertEquals(String.format("%40s%40d%40s%40s", "Three Little Pigs", 1933, "Burt Gillett", "unrated"), movie.toString());
     }
+
+    @Test
+    public void shouldRightlyConvertToStringWithUnratedMovieForARatingWhichIsANumberNotInRange() {
+        Movie movie = new Movie("Three Little Pigs", 1933, "Burt Gillett", "52");
+
+        assertEquals(String.format("%40s%40d%40s%40s", "Three Little Pigs", 1933, "Burt Gillett", "unrated"), movie.toString());
+    }
 }

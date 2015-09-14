@@ -21,7 +21,10 @@ public class Movie {
 
     private boolean isNumberBetweenOneAndTen(String rating) {
         if(isNumeric(rating)) {
-            return true;
+            int ratingNumber = Integer.parseInt(rating);
+            if(ratingNumber >= 1 && ratingNumber <= 10) {
+                return true;
+            }
         }
         return false;
     }
