@@ -44,6 +44,10 @@ public class Library {
         return movies;
     }
 
+    public boolean checkOutMovie(Movie movie) {
+        return movies.remove(movie);
+    }
+
     public boolean checkOutBook(Book book) {
         Book bookToCheckout = null;
         if(listOfAvailableBooks.contains(book)) {

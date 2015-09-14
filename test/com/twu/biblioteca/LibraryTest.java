@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.when;
 
 public class LibraryTest {
@@ -68,7 +69,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldSuccessfullyCheckOut() {
+    public void shouldSuccessfullyCheckOutValidBook() {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
@@ -94,7 +95,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldSuccessfullyCheckIn() {
+    public void shouldSuccessfullyCheckInValidBook() {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
@@ -120,5 +121,18 @@ public class LibraryTest {
         library.checkOutBook(book2);
 
         assertFalse(library.checkInBook(book3));
+    }
+
+    @Test
+    public void shouldSuccessfullyCheckOutValidMovie() {
+        Book book1 = mock(Book.class);
+        Book book2 = mock(Book.class);
+        ArrayList<Book> books = new ArrayList<Book>(Arrays.asList(book1, book2));
+        Movie movie1 = new Movie("Three Little Pigs", 1933, "Burt Gillett", "1");
+        Movie movie2 = new Movie("Three Little Pigs", 0, null, null);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        Library library = new Library(books, movies);
+
+        assertTrue(library.checkOutMovie(movie2));
     }
 }
