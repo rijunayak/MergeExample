@@ -12,7 +12,27 @@ public class Movie {
         this.name = name;
         this.year = year;
         this.director = director;
-        this.rating = rating;
+        if(isNumberBetweenOneAndTen(rating)) {
+            this.rating = rating;
+        } else {
+            this.rating = "unrated";
+        }
+    }
+
+    private boolean isNumberBetweenOneAndTen(String rating) {
+        if(isNumeric(rating)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isNumeric(String rating) {
+        try {
+            Integer.parseInt(rating);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
