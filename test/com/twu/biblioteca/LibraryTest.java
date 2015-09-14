@@ -43,7 +43,7 @@ public class LibraryTest {
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
         Library library = new Library(listOfBooks);
 
-        assertTrue(library.checkOut(book2));
+        assertTrue(library.checkOutBook(book2));
     }
 
     @Test
@@ -53,7 +53,7 @@ public class LibraryTest {
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
         Library library = new Library(listOfBooks);
 
-        assertFalse(library.checkOut(book2));
+        assertFalse(library.checkOutBook(book2));
     }
 
     @Test
@@ -62,9 +62,9 @@ public class LibraryTest {
         Book book2 = new Book("Three Little Pigs", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
         Library library = new Library(listOfBooks);
-        library.checkOut(book2);
+        library.checkOutBook(book2);
 
-        assertTrue(library.checkIn(book2));
+        assertTrue(library.checkInBook(book2));
     }
 
     @Test
@@ -74,8 +74,8 @@ public class LibraryTest {
         Book book3 = new Book("Three Little Piglets", null, 0);
         ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
         Library library = new Library(listOfBooks);
-        library.checkOut(book2);
+        library.checkOutBook(book2);
 
-        assertFalse(library.checkIn(book3));
+        assertFalse(library.checkInBook(book3));
     }
 }

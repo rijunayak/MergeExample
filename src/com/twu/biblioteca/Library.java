@@ -26,7 +26,7 @@ public class Library {
         return listOfBooks;
     }
 
-    public boolean checkOut(Book book) {
+    public boolean checkOutBook(Book book) {
         Book bookToCheckout = null;
         if(listOfAvailableBooks.contains(book)) {
             bookToCheckout = listOfAvailableBooks.get(listOfAvailableBooks.indexOf(book));
@@ -35,7 +35,7 @@ public class Library {
         return listOfAvailableBooks.remove(book);
     }
 
-    public boolean checkIn(Book book) {
+    public boolean checkInBook(Book book) {
         Book bookToCheckin = null;
         if(listOfUnavailableBooks.contains(book)) {
             bookToCheckin = listOfUnavailableBooks.get(listOfUnavailableBooks.indexOf(book));

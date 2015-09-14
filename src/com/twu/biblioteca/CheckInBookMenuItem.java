@@ -22,7 +22,7 @@ public class CheckInBookMenuItem implements MenuItem {
         consoleDisplay.display();
         bookToCheckin = consoleInput.getInput();
 
-        if(!library.checkIn(new Book(bookToCheckin, null, 0))) {
+        if(!library.checkInBook(new Book(bookToCheckin, null, 0))) {
             return "\nThat is not a valid book to return.\n";
         }
         return "\nThank you for returning the book.\n";

@@ -21,7 +21,7 @@ public class CheckOutBookMenuItem implements MenuItem {
         ConsoleDisplay consoleDisplay = new ConsoleDisplay("\nEnter a book checkout : ");
         consoleDisplay.display();
         bookToCheckout = consoleInput.getInput();
-        if(!library.checkOut(new Book(bookToCheckout, null, 0))) {
+        if(!library.checkOutBook(new Book(bookToCheckout, null, 0))) {
             return "\nThat book does not exist!\n";
         }
         return "\nThank you! Enjoy the book.\n";

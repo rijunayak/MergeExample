@@ -34,7 +34,7 @@ public class CheckInBookMenuItemTest {
         Library library = mock(Library.class);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(library);
-        when(library.checkIn(argumentCaptor.capture())).thenReturn(true);
+        when(library.checkInBook(argumentCaptor.capture())).thenReturn(true);
 
         assertEquals("\nThank you for returning the book.\n", checkInBookMenuItem.doOperation());
     }
@@ -44,7 +44,7 @@ public class CheckInBookMenuItemTest {
         Library library = mock(Library.class);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(library);
-        when(library.checkIn(argumentCaptor.capture())).thenReturn(false);
+        when(library.checkInBook(argumentCaptor.capture())).thenReturn(false);
 
         assertEquals("\nThat is not a valid book to return.\n", checkInBookMenuItem.doOperation());
     }
