@@ -77,4 +77,19 @@ public class UserTest {
 
         assertNotEquals(user1, user2);
     }
+
+    @Test
+    public void shouldReturnZeroOnComparingHashCodeWithNullUserID() {
+        User user = new User(null, "password1");
+
+        assertEquals(0, user.hashCode());
+    }
+
+    @Test
+    public void shouldHaveSameHashCodeForSameUserIDs() {
+        User user1 = new User("user1", "password1");
+        User user2 = new User("user1", null);
+
+        assertEquals(user1.hashCode(), user2.hashCode());
+    }
 }

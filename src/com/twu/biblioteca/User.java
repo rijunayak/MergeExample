@@ -28,4 +28,9 @@ public class User {
             return false;
         }
     }
+
+    @Override
+    public int hashCode() {
+        return userId != null ? userId.hashCode() : 0;
+    }
 }
