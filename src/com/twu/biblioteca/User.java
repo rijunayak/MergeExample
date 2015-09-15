@@ -14,4 +14,18 @@ public class User {
     public boolean authenticate(String password) {
         return this.password.equals(password);
     }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+
+        User thatUser = (User) that;
+
+        if(userId != null && thatUser.userId != null) {
+            return userId.equals(thatUser.userId);
+        } else {
+            return false;
+        }
+    }
 }
