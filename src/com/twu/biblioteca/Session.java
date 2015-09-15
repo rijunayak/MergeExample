@@ -12,8 +12,4 @@ public class Session {
     public User getUser() {
         return user;
     }
-
-    public boolean hasAnyUser() {
-        return user != null;
-    }
 }

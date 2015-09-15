@@ -16,19 +16,4 @@ public class SessionTest {
 
         assertEquals(user, session.getUser());
     }
-
-    @Test
-    public void shouldRightlyCheckIfItHasAnyUser() {
-        User user = mock(User.class);
-        Session session = new Session(user);
-
-        assertTrue(session.hasAnyUser());
-    }
-
-    @Test
-    public void shouldRightlyCheckIfItHasNoUser() {
-        Session session = new Session(null);
-
-        assertFalse(session.hasAnyUser());
-    }
 }
