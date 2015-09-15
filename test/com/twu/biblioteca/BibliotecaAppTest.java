@@ -30,7 +30,7 @@ public class BibliotecaAppTest {
         WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
         LibraryFactory libraryFactory = new LibraryFactory();
         MenuFactory menuFactory = new MenuFactory();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(null));
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(null), new InputParser(""));
         bibliotecaApp.start();
     }
 

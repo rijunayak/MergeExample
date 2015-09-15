@@ -12,7 +12,7 @@ public class MenuFactory {
         CheckOutMovieMenuItem checkOutMovieMenuItem = new CheckOutMovieMenuItem(null);
         LoginMenuItem loginMenuItem = new LoginMenuItem(null, null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, loginMenuItem, checkOutMovieMenuItem, quitMenuItem));
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, loginMenuItem, quitMenuItem));
         return new Menu(menuItems);
     }
 
