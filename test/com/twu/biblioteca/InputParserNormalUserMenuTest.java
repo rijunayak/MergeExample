@@ -11,8 +11,8 @@ public class InputParserNormalUserMenuTest {
     public void shouldReturnInvalidMenuItemOnInvalidCommand() {
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        InputParser inputParser = new InputParser("Not a command.");
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("Not a command.");
 
-        assertEquals(InvalidMenuItem.class, inputParser.parseMenuOptionInput(library, session).getClass());
+        assertEquals(InvalidMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
 }
