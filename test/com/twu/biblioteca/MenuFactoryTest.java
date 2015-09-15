@@ -13,14 +13,29 @@ public class MenuFactoryTest {
     public void shouldCreateADefaultMenu() {
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(null);
         ListMoviesMenuItem listMoviesMenuItem = new ListMoviesMenuItem(null);
-        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
-        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
         CheckOutMovieMenuItem checkOutMovieMenuItem = new CheckOutMovieMenuItem(null);
+        LoginMenuItem loginMenuItem = new LoginMenuItem(null, null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutBookMenuItem, checkInBookMenuItem, checkOutMovieMenuItem, quitMenuItem));
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, loginMenuItem, checkOutMovieMenuItem, quitMenuItem));
         Menu menu = new Menu(menuItems);
         MenuFactory menuFactory = new MenuFactory();
 
         assertEquals(menu.toString(), menuFactory.getDefaultMenu().toString());
+    }
+
+    @Test
+    public void shouldCreateANormalUserMenu() {
+        ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(null);
+        ListMoviesMenuItem listMoviesMenuItem = new ListMoviesMenuItem(null);
+        CheckOutMovieMenuItem checkOutMovieMenuItem = new CheckOutMovieMenuItem(null);
+        CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
+        CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
+        LogoutMenuItem logoutMenuItem = new LogoutMenuItem(null);
+        QuitMenuItem quitMenuItem = new QuitMenuItem();
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, checkOutBookMenuItem, checkInBookMenuItem, logoutMenuItem, quitMenuItem));
+        Menu menu = new Menu(menuItems);
+        MenuFactory menuFactory = new MenuFactory();
+
+        assertEquals(menu.toString(), menuFactory.getNormalUserMenu().toString());
     }
 }

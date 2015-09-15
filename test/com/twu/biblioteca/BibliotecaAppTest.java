@@ -13,7 +13,7 @@ import java.io.PrintStream;
 public class BibliotecaAppTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayInputStream inContent = new ByteArrayInputStream("6".getBytes());
+    private final ByteArrayInputStream inContent = new ByteArrayInputStream("5".getBytes());
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
@@ -30,7 +30,7 @@ public class BibliotecaAppTest {
         WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
         LibraryFactory libraryFactory = new LibraryFactory();
         MenuFactory menuFactory = new MenuFactory();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu());
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(null));
         bibliotecaApp.start();
     }
 

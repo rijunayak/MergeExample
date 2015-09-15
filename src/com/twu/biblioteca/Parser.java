@@ -3,5 +3,5 @@ package com.twu.biblioteca;
 
 public interface Parser {
 
-    MenuItem parseMenuOptionInput(Library library);
+    MenuItem parseMenuOptionInput(Library library, Session session);
 }

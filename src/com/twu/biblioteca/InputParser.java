@@ -10,19 +10,18 @@ public class InputParser implements Parser {
     }
 
     @Override
-    public MenuItem parseMenuOptionInput(Library library) {
+    public MenuItem parseMenuOptionInput(Library library, Session session) {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(library);
         } else if(input.equals("2")){
             menuItem = new ListMoviesMenuItem(library);
-        } else if(input.equals("3")) {
-            menuItem = new CheckOutBookMenuItem(library);
-        } else if(input.equals("4")) {
-            menuItem = new CheckInBookMenuItem(library);
-        } else if (input.equals("5")) {
+        } else if (input.equals("3")) {
             menuItem = new CheckOutMovieMenuItem(library);
-        } else if(input.equals("6")) {
+        } else if(input.equals("4")) {
+            ConsoleInput consoleInput = new ConsoleInput();
+            menuItem = new LoginMenuItem(session, consoleInput);
+        } else if (input.equals("5")) {
             menuItem = new QuitMenuItem();
         }
         return menuItem;
