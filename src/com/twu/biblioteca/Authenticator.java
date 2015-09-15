@@ -15,7 +15,8 @@ public class Authenticator {
         users = new ArrayList<User>(Arrays.asList(user1, user2, user3));
     }
 
-    public void authenticate(String userId, String password) {
-        
+    public boolean authenticate(String userId, String password) {
+        User userToAuthenticate = new User(userId, null);
+        return users.get(users.indexOf(userToAuthenticate)).authenticate(password);
     }
 }
