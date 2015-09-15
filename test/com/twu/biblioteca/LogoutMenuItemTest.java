@@ -14,4 +14,12 @@ public class LogoutMenuItemTest {
 
         assertEquals("Logout", logoutMenuItem.toString());
     }
+
+    @Test
+    public void shouldReturnLogoutMessageOnSelection() {
+        Session session = mock(Session.class);
+        LogoutMenuItem logoutMenuItem = new LogoutMenuItem(session);
+
+        assertEquals("Logged Out.", logoutMenuItem.doOperation());
+    }
 }

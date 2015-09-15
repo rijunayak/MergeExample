@@ -27,10 +27,10 @@ public class LoginMenuItem implements MenuItem {
         password = consoleInput.getInput();
         User userToBePutInSession = authenticator.authenticate(userIDToLogin, password);
         if(userToBePutInSession != null) {
-            session = new Session(userToBePutInSession);
+            session.setUser(userToBePutInSession);
             return "Logged In!";
         } else {
-            session = new Session(userToBePutInSession);
+            session.setUser(userToBePutInSession);
             return "Invalid Credentials.";
         }
     }

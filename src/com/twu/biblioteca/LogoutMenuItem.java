@@ -1,7 +1,7 @@
 // A log out menu item has a menu entry and logs out on selection
 package com.twu.biblioteca;
 
-public class LogoutMenuItem {
+public class LogoutMenuItem implements MenuItem {
 
     private Session session;
 
@@ -12,5 +12,11 @@ public class LogoutMenuItem {
     @Override
     public String toString() {
         return "Logout";
+    }
+
+    @Override
+    public String doOperation() {
+        session.setUser(null);
+        return "Logged Out.";
     }
 }
