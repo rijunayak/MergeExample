@@ -1,7 +1,7 @@
-//An InputParser takes an input and returns a menu item
+//An InputParserMainMenu takes an input in main menu and returns a menu item
 package com.twu.biblioteca;
 
-public class InputParser {
+public class InputParser implements Parser {
 
     private String input;
 
@@ -9,7 +9,8 @@ public class InputParser {
         this.input = input;
     }
 
-    public MenuItem parseMainMenuOptionInput(Library library) {
+    @Override
+    public MenuItem parseMenuOptionInput(Library library) {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(library);

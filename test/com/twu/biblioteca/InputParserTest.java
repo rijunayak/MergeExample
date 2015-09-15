@@ -13,7 +13,7 @@ public class InputParserTest {
         Library library = mock(Library.class);
         ListBooksMenuItem listBooksMenuItem = new ListBooksMenuItem(library);
 
-        assertEquals(listBooksMenuItem.getClass(), inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(listBooksMenuItem.getClass(), inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -21,7 +21,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("Not a command");
         Library library = mock(Library.class);
 
-        assertEquals(InvalidMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(InvalidMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("6");
         Library library = mock(Library.class);
 
-        assertEquals(QuitMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(QuitMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("2");
         Library library = mock(Library.class);
 
-        assertEquals(ListMoviesMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(ListMoviesMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("3");
         Library library = mock(Library.class);
 
-        assertEquals(CheckOutBookMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(CheckOutBookMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("4");
         Library library = mock(Library.class);
 
-        assertEquals(CheckInBookMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(CheckInBookMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 
     @Test
@@ -61,6 +61,6 @@ public class InputParserTest {
         InputParser inputParser = new InputParser("5");
         Library library = mock(Library.class);
 
-        assertEquals(CheckOutMovieMenuItem.class, inputParser.parseMainMenuOptionInput(library).getClass());
+        assertEquals(CheckOutMovieMenuItem.class, inputParser.parseMenuOptionInput(library).getClass());
     }
 }

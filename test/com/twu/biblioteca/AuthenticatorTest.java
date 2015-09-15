@@ -2,22 +2,22 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class AuthenticatorTest {
 
     @Test
     public void shouldAuthenticateOnCorrectUserIdPasswordPair() {
         Authenticator authenticator = new Authenticator();
+        User user1 = new User("user1", "password1", "user");
 
-        assertTrue(authenticator.authenticate("user1", "password1"));
+        assertEquals(user1, authenticator.authenticate("user1", "password1"));
     }
 
     @Test
     public void shouldNotAuthenticateOnIncorrectUserIdPasswordPair() {
         Authenticator authenticator = new Authenticator();
 
-        assertFalse(authenticator.authenticate("user1", "password2"));
+        assertEquals(null, authenticator.authenticate("user1", "password2"));
     }
 }

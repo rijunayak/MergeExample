@@ -34,9 +34,9 @@ public class BibliotecaApp {
         while(true) {
             consoleDisplayMenu.display();
             InputParser inputParser = new InputParser(consoleInput.getInput());
-            ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(inputParser.parseMainMenuOptionInput(library)));
+            ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(inputParser.parseMenuOptionInput(library)));
             consoleDisplayMenuItemOperation.display();
-            if(inputParser.parseMainMenuOptionInput(library).toString().equals("Quit"))
+            if(inputParser.parseMenuOptionInput(library).toString().equals("Quit"))
                 System.exit(0);
         }
     }
