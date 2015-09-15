@@ -14,6 +14,8 @@ public class InputParserNormalUserMenu implements Parser {
         MenuItem menuItem = new InvalidMenuItem();
         if(input.equals("1")) {
             menuItem = new ListBooksMenuItem(library);
+        } else if(input.equals("2")) {
+            menuItem = new ListMoviesMenuItem(library);
         }
         return menuItem;
     }
