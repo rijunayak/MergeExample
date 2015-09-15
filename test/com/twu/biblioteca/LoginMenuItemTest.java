@@ -27,4 +27,15 @@ public class LoginMenuItemTest {
 
         assertEquals("Logged In!", loginMenuItem.doOperation());
     }
+
+    @Test
+    public void shouldRightlyReturnInvalidCredentialsMessageOnLoginOperation() {
+        Session session = mock(Session.class);
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        LoginMenuItem loginMenuItem = new LoginMenuItem(session, consoleInput);
+
+        when(consoleInput.getInput()).thenReturn("user1", "password2");
+
+        assertEquals("Invalid Credentials.", loginMenuItem.doOperation());
+    }
 }
