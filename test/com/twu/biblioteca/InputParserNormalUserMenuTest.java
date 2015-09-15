@@ -15,4 +15,13 @@ public class InputParserNormalUserMenuTest {
 
         assertEquals(InvalidMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
+
+    @Test
+    public void shouldReturnListBooksMenuItemOnOneAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("1");
+
+        assertEquals(ListBooksMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
 }

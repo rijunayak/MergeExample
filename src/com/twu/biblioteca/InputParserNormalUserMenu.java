@@ -12,6 +12,9 @@ public class InputParserNormalUserMenu implements Parser {
     @Override
     public MenuItem parseMenuOptionInput(Library library, Session session) {
         MenuItem menuItem = new InvalidMenuItem();
+        if(input.equals("1")) {
+            menuItem = new ListBooksMenuItem(library);
+        }
         return menuItem;
     }
 }
