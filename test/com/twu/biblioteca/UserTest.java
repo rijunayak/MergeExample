@@ -92,4 +92,12 @@ public class UserTest {
 
         assertEquals(user1.hashCode(), user2.hashCode());
     }
+
+    @Test
+    public void shouldHaveDifferentHashCodeForDifferentUserIDs() {
+        User user1 = new User("user1", "password1");
+        User user2 = new User("user2", "password2");
+
+        assertNotEquals(user1.hashCode(), user2.hashCode());
+    }
 }
