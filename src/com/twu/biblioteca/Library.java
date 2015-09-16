@@ -47,6 +47,9 @@ public class Library {
     public String listCheckouts() {
         String listCheckouts = "";
         listCheckouts += String.format("\n%40s%40s\n", "Checked out Book", "Library Number");
+        for(int i = 0; i < 80; i++) {
+            listCheckouts += "-";
+        }
         for(Book book : listOfCheckedOutBooks) {
             listCheckouts += String.format("%40s%40s\n", book.getTitle(), bookUserMap.get(book).getUserId());
         }

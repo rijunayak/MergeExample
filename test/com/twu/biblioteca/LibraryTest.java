@@ -87,6 +87,10 @@ public class LibraryTest {
         library.checkOutBook(book1);
         session.setUser(user2);
         library.checkOutBook(book2);
+        String eightyDashes = "";
+        for(int i = 0; i < 80; i++) {
+            eightyDashes += "-";
+        }
 
         when(book1.getTitle()).thenReturn("Book1");
         when(book2.getTitle()).thenReturn("Book2");
@@ -94,6 +98,7 @@ public class LibraryTest {
         when(user2.getUserId()).thenReturn("User2");
 
         assertEquals(String.format("\n%40s%40s\n", "Checked out Book", "Library Number") +
+                eightyDashes +
                 String.format("%40s%40s\n", book1.getTitle(), user1.getUserId()) +
                 String.format("%40s%40s\n", book2.getTitle(), user2.getUserId()), library.listCheckouts());
     }
