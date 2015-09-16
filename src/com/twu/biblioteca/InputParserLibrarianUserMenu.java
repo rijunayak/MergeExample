@@ -22,6 +22,8 @@ public class InputParserLibrarianUserMenu implements Parser {
             menuItem = new CheckOutBookMenuItem(library);
         } else if(input.equals("5")) {
             menuItem = new CheckInBookMenuItem(library);
+        } else if(input.equals("6")) {
+            menuItem = new ListCheckOutsMenuItem(library);
         }
         return menuItem;
     }
