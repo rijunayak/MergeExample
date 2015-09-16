@@ -71,6 +71,34 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldListCheckouts() {
+        Book book1 = mock(Book.class);
+        Book book2 = mock(Book.class);
+        Book book3 = mock(Book.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        Movie movie3 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
+        User user1 = mock(User.class);
+        User user2 = mock(User.class);
+        Session session = new Session(user1);
+        Library library = new Library(listOfBooks, movies, session);
+        library.checkOutBook(book1);
+        session.setUser(user2);
+        library.checkOutBook(book2);
+
+        when(book1.getTitle()).thenReturn("Book1");
+        when(book2.getTitle()).thenReturn("Book2");
+        when(user1.getUserId()).thenReturn("User1");
+        when(user2.getUserId()).thenReturn("User2");
+
+        assertEquals(String.format("\n%40s%40s\n", "Checked out Book", "Library Number") +
+                String.format("%40s%40s\n", book1.getTitle(), user1.getUserId()) +
+                String.format("%40s%40s\n", book2.getTitle(), user2.getUserId()), library.listCheckouts());
+    }
+
+    @Test
     public void shouldSuccessfullyCheckOutValidBook() {
         Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
         Book book2 = new Book("Three Little Pigs", null, 0);

@@ -44,6 +44,15 @@ public class Library {
         return movies;
     }
 
+    public String listCheckouts() {
+        String listCheckouts = "";
+        listCheckouts += String.format("\n%40s%40s\n", "Checked out Book", "Library Number");
+        for(Book book : listOfCheckedOutBooks) {
+            listCheckouts += String.format("%40s%40s\n", book.getTitle(), bookUserMap.get(book).getUserId());
+        }
+        return listCheckouts;
+    }
+
     public boolean checkOutMovie(Movie movie) {
         return movies.remove(movie);
     }

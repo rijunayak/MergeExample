@@ -107,4 +107,11 @@ public class UserTest {
 
         assertEquals("user", user.getRole());
     }
+
+    @Test
+    public void shouldReturnUserIDOfUser() {
+        User user = new User("user1", "password1", "user");
+
+        assertEquals("user1", user.getUserId());
+    }
 }

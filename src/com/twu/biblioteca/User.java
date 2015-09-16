@@ -21,6 +21,10 @@ public class User {
         return this.role;
     }
 
+    public String getUserId() {
+        return this.userId;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;
