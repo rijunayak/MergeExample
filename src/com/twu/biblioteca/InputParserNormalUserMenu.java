@@ -22,6 +22,8 @@ public class InputParserNormalUserMenu implements Parser {
             menuItem = new CheckOutBookMenuItem(library);
         } else if(input.equals("5")) {
             menuItem = new CheckInBookMenuItem(library);
+        } else if(input.equals("6")) {
+            menuItem = new LogoutMenuItem(session);
         }
         return menuItem;
     }

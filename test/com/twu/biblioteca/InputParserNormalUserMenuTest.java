@@ -60,4 +60,13 @@ public class InputParserNormalUserMenuTest {
 
         assertEquals(CheckInBookMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
+
+    @Test
+    public void shouldLogoutMenuItemOnSixAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("6");
+
+        assertEquals(LogoutMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
 }
