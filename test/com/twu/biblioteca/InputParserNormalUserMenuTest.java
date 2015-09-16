@@ -33,4 +33,13 @@ public class InputParserNormalUserMenuTest {
 
         assertEquals(ListMoviesMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
+
+    @Test
+    public void shouldCheckOutMovieMenuItemOnThreeAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("3");
+
+        assertEquals(CheckOutMovieMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
 }
