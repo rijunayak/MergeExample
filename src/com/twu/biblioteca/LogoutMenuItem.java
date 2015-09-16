@@ -16,7 +16,7 @@ public class LogoutMenuItem implements MenuItem {
 
     @Override
     public String doOperation() {
-        session.setUser(null);
-        return "Logged Out.";
+        session.setUser(new User("000-0000", "password", "undefined"));
+        return "\nLogged Out.\n";
     }
 }

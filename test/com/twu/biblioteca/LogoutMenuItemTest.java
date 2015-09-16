@@ -20,6 +20,6 @@ public class LogoutMenuItemTest {
         Session session = mock(Session.class);
         LogoutMenuItem logoutMenuItem = new LogoutMenuItem(session);
 
-        assertEquals("Logged Out.", logoutMenuItem.doOperation());
+        assertEquals("\nLogged Out.\n", logoutMenuItem.doOperation());
     }
 }

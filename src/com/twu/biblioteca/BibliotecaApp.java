@@ -21,7 +21,7 @@ public class BibliotecaApp {
         WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
         LibraryFactory libraryFactory = new LibraryFactory();
         MenuFactory menuFactory = new MenuFactory();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(null), new InputParser(""));
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(new User("000-0000", "password", "undefined")), new InputParser(""));
         bibliotecaApp.start();
     }
 
@@ -32,16 +32,30 @@ public class BibliotecaApp {
     }
 
     private void repeatThroughMenu() {
-        ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(menu);
-        ConsoleInput consoleInput = new ConsoleInput();
-
         while(true) {
+            menu = getMenuBasedOnSession();
+            ConsoleDisplay consoleDisplayMenu = new ConsoleDisplay(menu);
             consoleDisplayMenu.display();
-            InputParser inputParser = new InputParser(consoleInput.getInput());
-            ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(inputParser.parseMenuOptionInput(library, session)));
+            parser = getParserBasedOnSession();
+            ConsoleDisplay consoleDisplayMenuItemOperation = new ConsoleDisplay(menu.selectedMenuItem(parser.parseMenuOptionInput(library, session)));
             consoleDisplayMenuItemOperation.display();
-            if(inputParser.parseMenuOptionInput(library, session).toString().equals("Quit"))
+            if(parser.parseMenuOptionInput(library, session).toString().equals("Quit"))
                 System.exit(0);
         }
+    }
+
+    private Parser getParserBasedOnSession() {
+        ConsoleInput consoleInput = new ConsoleInput();
+        if(session.getUser().getRole().equals("undefined")) {
+            return new InputParser(consoleInput.getInput());
+        }
+        return new InputParserNormalUserMenu(consoleInput.getInput());
+    }
+
+    private Menu getMenuBasedOnSession() {
+        if(session.getUser().getRole().equals("undefined")) {
+            return new MenuFactory().getDefaultMenu();
+        }
+        return new MenuFactory().getNormalUserMenu();
     }
 }

@@ -21,6 +21,6 @@ public class Authenticator {
         if(users.get(users.indexOf(userToAuthenticate)).authenticate(password)) {
             return users.get(users.indexOf(userToAuthenticate));
         }
-        return null;
+        return new User("000-0000", "password", "undefined");
     }
 }

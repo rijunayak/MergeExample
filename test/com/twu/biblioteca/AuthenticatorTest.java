@@ -17,7 +17,8 @@ public class AuthenticatorTest {
     @Test
     public void shouldNotAuthenticateOnIncorrectUserIdPasswordPair() {
         Authenticator authenticator = new Authenticator();
+        User undefinedUser = new User("000-0000", "password", "undefined");
 
-        assertEquals(null, authenticator.authenticate("user1", "password2"));
+        assertEquals(undefinedUser, authenticator.authenticate("user1", "password2"));
     }
 }

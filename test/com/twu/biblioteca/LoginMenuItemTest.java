@@ -25,7 +25,7 @@ public class LoginMenuItemTest {
 
         when(consoleInput.getInput()).thenReturn("user1", "password1");
 
-        assertEquals("Logged In!", loginMenuItem.doOperation());
+        assertEquals("\nLogged In!\n", loginMenuItem.doOperation());
     }
 
     @Test
@@ -36,6 +36,6 @@ public class LoginMenuItemTest {
 
         when(consoleInput.getInput()).thenReturn("user1", "password2");
 
-        assertEquals("Invalid Credentials.", loginMenuItem.doOperation());
+        assertEquals("\nInvalid Credentials.\n", loginMenuItem.doOperation());
     }
 }
