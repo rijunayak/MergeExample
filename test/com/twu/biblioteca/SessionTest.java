@@ -1,11 +1,8 @@
 package com.twu.biblioteca;
 
-import junit.framework.Assert;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 public class SessionTest {
