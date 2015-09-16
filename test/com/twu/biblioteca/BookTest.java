@@ -16,6 +16,13 @@ public class BookTest {
     }
 
     @Test
+    public void shouldReturnTitle() {
+        Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+
+        assertEquals("Three Little Pigs", book.getTitle());
+    }
+
+    @Test
     public void shouldReturnFalseOnComparingWithNullObject() {
         Book book = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
 
