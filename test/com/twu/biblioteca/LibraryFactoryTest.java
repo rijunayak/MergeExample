@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class LibraryFactoryTest {
 
@@ -19,9 +20,10 @@ public class LibraryFactoryTest {
         Movie movie2 = new Movie("Clifford, The Big Red Dog", 2000, "John Over", "1");
         Movie movie3 = new Movie("Cinderella", 1950, "Clyde Geronim", "1");
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
-        Library library = new Library(books, movies);
+        Session session = mock(Session.class);
+        Library library = new Library(books, movies, session);
         LibraryFactory libraryFactory = new LibraryFactory();
 
-        assertEquals(library.listAvailableBooks() + library.listMovies(), libraryFactory.getDefaultLibrary().listAvailableBooks() + libraryFactory.getDefaultLibrary().listMovies());
+        assertEquals(library.listAvailableBooks() + library.listMovies(), libraryFactory.getDefaultLibrary(session).listAvailableBooks() + libraryFactory.getDefaultLibrary(session).listMovies());
     }
 }

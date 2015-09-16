@@ -8,12 +8,16 @@ public class Library {
 
     private ArrayList<Book> listOfAvailableBooks;
     private ArrayList<Book> listOfCheckedOutBooks;
+    private HashMap<Book, User> bookUserMap;
     private ArrayList<Movie> movies;
+    private Session session;
 
-    public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Movie> movies) {
+    public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Movie> movies, Session session) {
         this.listOfAvailableBooks = listOfAvailableBooks;
         this.listOfCheckedOutBooks = new ArrayList<Book>();
+        bookUserMap = new HashMap<Book, User>();
         this.movies = movies;
+        this.session = session;
     }
 
     public String listAvailableBooks() {
@@ -49,16 +53,19 @@ public class Library {
         if(listOfAvailableBooks.contains(book)) {
             bookToCheckout = listOfAvailableBooks.get(listOfAvailableBooks.indexOf(book));
             listOfCheckedOutBooks.add(bookToCheckout);
+            bookUserMap.put(bookToCheckout, session.getUser());
         }
         return listOfAvailableBooks.remove(book);
     }
 
     public boolean checkInBook(Book book) {
         Book bookToCheckin = null;
-        if(listOfCheckedOutBooks.contains(book)) {
+        if(listOfCheckedOutBooks.contains(book) && session.getUser().equals(bookUserMap.get(book))) {
             bookToCheckin = listOfCheckedOutBooks.get(listOfCheckedOutBooks.indexOf(book));
             listOfAvailableBooks.add(bookToCheckin);
+            bookUserMap.remove(book);
+            return listOfCheckedOutBooks.remove(book);
         }
-        return listOfCheckedOutBooks.remove(book);
+        return false;
     }
 }

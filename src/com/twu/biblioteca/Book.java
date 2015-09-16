@@ -17,6 +17,10 @@ public class Book {
         return String.format("%40s%40s%40d", title, author, yearOfPublication);
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;

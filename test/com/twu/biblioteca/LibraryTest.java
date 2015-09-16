@@ -24,7 +24,8 @@ public class LibraryTest {
         Movie movie2 = mock(Movie.class);
         Movie movie3 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
-        Library library = new Library(listOfBooks, movies);
+        Session session = mock(Session.class);
+        Library library = new Library(listOfBooks, movies, session);
         String oneTwentyDashes = "";
         for(int i = 0; i < 120; i++) {
             oneTwentyDashes += "-";
@@ -51,7 +52,8 @@ public class LibraryTest {
         Movie movie2 = mock(Movie.class);
         Movie movie3 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
-        Library library = new Library(listOfBooks, movies);
+        Session session = mock(Session.class);
+        Library library = new Library(listOfBooks, movies, session);
         String oneSixtyDashes = "";
         for(int i = 0; i < 160; i++) {
             oneSixtyDashes += "-";
@@ -76,7 +78,9 @@ public class LibraryTest {
         Movie movie1 = mock(Movie.class);
         Movie movie2 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
-        Library library = new Library(listOfBooks, movies);
+        User user = mock(User.class);
+        Session session = new Session(user);
+        Library library = new Library(listOfBooks, movies, session);
 
         assertTrue(library.checkOutBook(book2));
     }
@@ -89,7 +93,9 @@ public class LibraryTest {
         Movie movie1 = mock(Movie.class);
         Movie movie2 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
-        Library library = new Library(listOfBooks, movies);
+        User user = mock(User.class);
+        Session session = new Session(user);
+        Library library = new Library(listOfBooks, movies, session);
 
         assertFalse(library.checkOutBook(book2));
     }
@@ -102,7 +108,9 @@ public class LibraryTest {
         Movie movie1 = mock(Movie.class);
         Movie movie2 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
-        Library library = new Library(listOfBooks, movies);
+        User user = mock(User.class);
+        Session session = new Session(user);
+        Library library = new Library(listOfBooks, movies, session);
         library.checkOutBook(book2);
 
         assertTrue(library.checkInBook(book2));
@@ -117,10 +125,48 @@ public class LibraryTest {
         Movie movie1 = mock(Movie.class);
         Movie movie2 = mock(Movie.class);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
-        Library library = new Library(listOfBooks, movies);
+        User user = mock(User.class);
+        Session session = new Session(user);
+        Library library = new Library(listOfBooks, movies, session);
         library.checkOutBook(book2);
 
         assertFalse(library.checkInBook(book3));
+    }
+
+    @Test
+    public void shouldNotCheckInForInvalidBookBecauseOfDifferentSessionUser() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Pigs", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        User user1 = mock(User.class);
+        User user2 = mock(User.class);
+        Session session = new Session(user1);
+        Library library = new Library(listOfBooks, movies, session);
+        library.checkOutBook(book2);
+        session.setUser(user2);
+
+        assertFalse(library.checkInBook(book2));
+    }
+
+    @Test
+    public void shouldNotCheckInForValidBookBecauseOfSameSessionUser() {
+        Book book1 = new Book("Three Little Pigs", "James Halliwell-Phillipps", 1886);
+        Book book2 = new Book("Three Little Pigs", null, 0);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>(Arrays.asList(book1));
+        Movie movie1 = mock(Movie.class);
+        Movie movie2 = mock(Movie.class);
+        ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1, movie2));
+        User user1 = mock(User.class);
+        User user2 = mock(User.class);
+        Session session = new Session(user1);
+        Library library = new Library(listOfBooks, movies, session);
+        library.checkOutBook(book2);
+        session.setUser(user1);
+
+        assertTrue(library.checkInBook(book2));
     }
 
     @Test
@@ -131,7 +177,8 @@ public class LibraryTest {
         Movie movie1 = new Movie("Three Little Pigs", 1933, "Burt Gillett", "1");
         Movie movie2 = new Movie("Three Little Pigs", 0, null, null);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1));
-        Library library = new Library(books, movies);
+        Session session = mock(Session.class);
+        Library library = new Library(books, movies, session);
 
         assertTrue(library.checkOutMovie(movie2));
     }
@@ -144,7 +191,8 @@ public class LibraryTest {
         Movie movie1 = new Movie("Three Little Pigs", 1933, "Burt Gillett", "1");
         Movie movie2 = new Movie("Three Little Piglets", 0, null, null);
         ArrayList<Movie> movies = new ArrayList<Movie>(Arrays.asList(movie1));
-        Library library = new Library(books, movies);
+        Session session = mock(Session.class);
+        Library library = new Library(books, movies, session);
 
         assertFalse(library.checkOutMovie(movie2));
     }
