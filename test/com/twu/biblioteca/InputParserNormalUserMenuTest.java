@@ -51,4 +51,13 @@ public class InputParserNormalUserMenuTest {
 
         assertEquals(CheckOutBookMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
+
+    @Test
+    public void shouldCheckInBookMenuItemOnFiveAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("5");
+
+        assertEquals(CheckInBookMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
 }
