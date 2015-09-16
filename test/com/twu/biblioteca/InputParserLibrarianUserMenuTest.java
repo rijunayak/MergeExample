@@ -35,11 +35,20 @@ public class InputParserLibrarianUserMenuTest {
     }
 
     @Test
-    public void shouldReturnCheckOutMenuItemOnThreeAsCommand() {
+    public void shouldReturnCheckOutMovieMenuItemOnThreeAsCommand() {
         Library library = mock(Library.class);
         Session session = mock(Session.class);
         InputParserLibrarianUserMenu inputParserLibrarianUserMenu = new InputParserLibrarianUserMenu("3");
 
         assertEquals(CheckOutMovieMenuItem.class, inputParserLibrarianUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckOutBookMenuItemOnFourAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserLibrarianUserMenu inputParserLibrarianUserMenu = new InputParserLibrarianUserMenu("4");
+
+        assertEquals(CheckOutBookMenuItem.class, inputParserLibrarianUserMenu.parseMenuOptionInput(library, session).getClass());
     }
 }
