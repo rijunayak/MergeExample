@@ -22,6 +22,6 @@ public class LibraryFactoryTest {
         Library library = new Library(books, movies);
         LibraryFactory libraryFactory = new LibraryFactory();
 
-        assertEquals(library.toString(), libraryFactory.getDefaultLibrary().toString());
+        assertEquals(library.listAvailableBooks() + library.listMovies(), libraryFactory.getDefaultLibrary().listAvailableBooks() + libraryFactory.getDefaultLibrary().listMovies());
     }
 }

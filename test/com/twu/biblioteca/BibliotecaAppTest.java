@@ -27,10 +27,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldStartAndEndAppropriately() {
         exit.expectSystemExit();
-        WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
-        LibraryFactory libraryFactory = new LibraryFactory();
-        MenuFactory menuFactory = new MenuFactory();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(new User("000-0000", "password", "undefined")), new InputParser(""));
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.start();
     }
 

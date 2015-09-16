@@ -9,19 +9,16 @@ public class BibliotecaApp {
     private Session session;
     private Parser parser;
 
-    public BibliotecaApp(WelcomeMessage welcomeMessage, Library library, Menu menu, Session session, Parser parser) {
-        this.welcomeMessage = welcomeMessage;
-        this.library = library;
-        this.menu = menu;
-        this.session = session;
-        this.parser = parser;
+    public BibliotecaApp() {
+        this.welcomeMessage = new WelcomeMessageFactory().getDefaultWelcomeMessage();
+        this.menu = new MenuFactory().getDefaultMenu();
+        this.session = new Session(new User("000-0000", "password", "undefined"));
+        this.library = new LibraryFactory().getDefaultLibrary();
+        this.parser = new InputParser("");
     }
 
     public static void main(String[] args) {
-        WelcomeMessageFactory welcomeMessageFactory = new WelcomeMessageFactory();
-        LibraryFactory libraryFactory = new LibraryFactory();
-        MenuFactory menuFactory = new MenuFactory();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcomeMessageFactory.getDefaultWelcomeMessage(), libraryFactory.getDefaultLibrary(), menuFactory.getDefaultMenu(), new Session(new User("000-0000", "password", "undefined")), new InputParser(""));
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.start();
     }
 

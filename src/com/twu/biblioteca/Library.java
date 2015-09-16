@@ -2,22 +2,18 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
 
     private ArrayList<Book> listOfAvailableBooks;
-    private ArrayList<Book> listOfUnavailableBooks;
+    private ArrayList<Book> listOfCheckedOutBooks;
     private ArrayList<Movie> movies;
 
     public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Movie> movies) {
         this.listOfAvailableBooks = listOfAvailableBooks;
-        this.listOfUnavailableBooks = new ArrayList<Book>();
+        this.listOfCheckedOutBooks = new ArrayList<Book>();
         this.movies = movies;
-    }
-
-    @Override
-    public String toString() {
-        return "";
     }
 
     public String listAvailableBooks() {
@@ -52,17 +48,17 @@ public class Library {
         Book bookToCheckout = null;
         if(listOfAvailableBooks.contains(book)) {
             bookToCheckout = listOfAvailableBooks.get(listOfAvailableBooks.indexOf(book));
-            listOfUnavailableBooks.add(bookToCheckout);
+            listOfCheckedOutBooks.add(bookToCheckout);
         }
         return listOfAvailableBooks.remove(book);
     }
 
     public boolean checkInBook(Book book) {
         Book bookToCheckin = null;
-        if(listOfUnavailableBooks.contains(book)) {
-            bookToCheckin = listOfUnavailableBooks.get(listOfUnavailableBooks.indexOf(book));
+        if(listOfCheckedOutBooks.contains(book)) {
+            bookToCheckin = listOfCheckedOutBooks.get(listOfCheckedOutBooks.indexOf(book));
             listOfAvailableBooks.add(bookToCheckin);
         }
-        return listOfUnavailableBooks.remove(book);
+        return listOfCheckedOutBooks.remove(book);
     }
 }
