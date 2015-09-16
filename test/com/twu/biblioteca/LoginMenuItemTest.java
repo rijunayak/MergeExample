@@ -23,7 +23,7 @@ public class LoginMenuItemTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginMenuItem loginMenuItem = new LoginMenuItem(session, consoleInput);
 
-        when(consoleInput.getInput()).thenReturn("user1", "password1");
+        when(consoleInput.getInput()).thenReturn("000-0001", "password1");
 
         assertEquals("\nLogged In!\n", loginMenuItem.doOperation());
     }
@@ -34,7 +34,7 @@ public class LoginMenuItemTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginMenuItem loginMenuItem = new LoginMenuItem(session, consoleInput);
 
-        when(consoleInput.getInput()).thenReturn("user1", "password2");
+        when(consoleInput.getInput()).thenReturn("000-0001", "password2");
 
         assertEquals("\nInvalid Credentials.\n", loginMenuItem.doOperation());
     }

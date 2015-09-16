@@ -50,6 +50,7 @@ public class Library {
         for(int i = 0; i < 80; i++) {
             listCheckouts += "-";
         }
+        listCheckouts += "\n";
         for(Book book : listOfCheckedOutBooks) {
             listCheckouts += String.format("%40s%40s\n", book.getTitle(), bookUserMap.get(book).getUserId());
         }

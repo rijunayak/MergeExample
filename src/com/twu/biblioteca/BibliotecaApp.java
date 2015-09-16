@@ -43,16 +43,20 @@ public class BibliotecaApp {
 
     private Parser getParserBasedOnSession() {
         ConsoleInput consoleInput = new ConsoleInput();
-        if(session.getUser().getRole().equals("undefined")) {
-            return new InputParser(consoleInput.getInput());
+        if(session.getUser().getRole().equals("user")) {
+            return new InputParserNormalUserMenu(consoleInput.getInput());
+        } else if(session.getUser().getRole().equals("librarian")) {
+            return new InputParserLibrarianUserMenu(consoleInput.getInput());
         }
-        return new InputParserNormalUserMenu(consoleInput.getInput());
+        return new InputParser(consoleInput.getInput());
     }
 
     private Menu getMenuBasedOnSession() {
-        if(session.getUser().getRole().equals("undefined")) {
-            return new MenuFactory().getDefaultMenu();
+        if(session.getUser().getRole().equals("user")) {
+            return new MenuFactory().getNormalUserMenu();
+        } else if(session.getUser().getRole().equals("librarian")) {
+            return new MenuFactory().getLibrarianUserMenu();
         }
-        return new MenuFactory().getNormalUserMenu();
+        return new MenuFactory().getDefaultMenu();
     }
 }

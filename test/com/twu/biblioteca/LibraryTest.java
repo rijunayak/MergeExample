@@ -98,7 +98,7 @@ public class LibraryTest {
         when(user2.getUserId()).thenReturn("User2");
 
         assertEquals(String.format("\n%40s%40s\n", "Checked out Book", "Library Number") +
-                eightyDashes +
+                eightyDashes + "\n" +
                 String.format("%40s%40s\n", book1.getTitle(), user1.getUserId()) +
                 String.format("%40s%40s\n", book2.getTitle(), user2.getUserId()), library.listCheckouts());
     }

@@ -9,10 +9,10 @@ public class Authenticator {
     private ArrayList<User> users;
 
     public Authenticator() {
-        User user1 = new User("user1", "password1", "user");
-        User user2 = new User("user2", "password2", "user");
-        User user3 = new User("user3", "password3", "user");
-        User librarian = new User("librarian", "passwordl", "user");
+        User user1 = new User("000-0001", "password1", "user");
+        User user2 = new User("000-0002", "password2", "user");
+        User user3 = new User("000-0003", "password3", "user");
+        User librarian = new User("100-0001", "passwordl", "librarian");
         users = new ArrayList<User>(Arrays.asList(user1, user2, user3, librarian));
     }
 
