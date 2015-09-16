@@ -42,4 +42,13 @@ public class InputParserNormalUserMenuTest {
 
         assertEquals(CheckOutMovieMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
     }
+
+    @Test
+    public void shouldCheckOutBookMenuItemOnFourAsCommand() {
+        Library library = mock(Library.class);
+        Session session = mock(Session.class);
+        InputParserNormalUserMenu inputParserNormalUserMenu = new InputParserNormalUserMenu("4");
+
+        assertEquals(CheckOutBookMenuItem.class, inputParserNormalUserMenu.parseMenuOptionInput(library, session).getClass());
+    }
 }

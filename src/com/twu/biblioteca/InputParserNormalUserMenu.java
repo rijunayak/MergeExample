@@ -18,6 +18,8 @@ public class InputParserNormalUserMenu implements Parser {
             menuItem = new ListMoviesMenuItem(library);
         } else if(input.equals("3")) {
             menuItem = new CheckOutMovieMenuItem(library);
+        } else if(input.equals("4")) {
+            menuItem = new CheckOutBookMenuItem(library);
         }
         return menuItem;
     }
