@@ -25,8 +25,10 @@ public class InputParserLibrarianUserMenu implements Parser {
         } else if(input.equals("6")) {
             menuItem = new ListCheckOutsMenuItem(library);
         } else if(input.equals("7")) {
-            menuItem = new LogoutMenuItem(session);
+            menuItem = new UserDetailsMenuItem(session);
         } else if(input.equals("8")) {
+            menuItem = new LogoutMenuItem(session);
+        } else if(input.equals("9")) {
             menuItem = new QuitMenuItem();
         }
         return menuItem;

@@ -22,9 +22,10 @@ public class MenuFactory {
         CheckOutMovieMenuItem checkOutMovieMenuItem = new CheckOutMovieMenuItem(null);
         CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
         CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
+        UserDetailsMenuItem userDetailsMenuItem = new UserDetailsMenuItem(null);
         LogoutMenuItem logoutMenuItem = new LogoutMenuItem(null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, checkOutBookMenuItem, checkInBookMenuItem, logoutMenuItem, quitMenuItem));
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, checkOutBookMenuItem, checkInBookMenuItem, userDetailsMenuItem, logoutMenuItem, quitMenuItem));
         return new Menu(menuItems);
     }
 
@@ -35,9 +36,10 @@ public class MenuFactory {
         CheckOutBookMenuItem checkOutBookMenuItem = new CheckOutBookMenuItem(null);
         CheckInBookMenuItem checkInBookMenuItem = new CheckInBookMenuItem(null);
         ListCheckOutsMenuItem listCheckOutsMenuItem = new ListCheckOutsMenuItem(null);
+        UserDetailsMenuItem userDetailsMenuItem = new UserDetailsMenuItem(null);
         LogoutMenuItem logoutMenuItem = new LogoutMenuItem(null);
         QuitMenuItem quitMenuItem = new QuitMenuItem();
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, checkOutBookMenuItem, checkInBookMenuItem, listCheckOutsMenuItem, logoutMenuItem, quitMenuItem));
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(Arrays.asList(listBooksMenuItem, listMoviesMenuItem, checkOutMovieMenuItem, checkOutBookMenuItem, checkInBookMenuItem, listCheckOutsMenuItem, userDetailsMenuItem, logoutMenuItem, quitMenuItem));
         return new Menu(menuItems);
     }
 }

@@ -23,8 +23,10 @@ public class InputParserNormalUserMenu implements Parser {
         } else if(input.equals("5")) {
             menuItem = new CheckInBookMenuItem(library);
         } else if(input.equals("6")) {
-            menuItem = new LogoutMenuItem(session);
+            menuItem = new UserDetailsMenuItem(session);
         } else if(input.equals("7")) {
+            menuItem = new LogoutMenuItem(session);
+        } else if(input.equals("8")) {
             menuItem = new QuitMenuItem();
         }
         return menuItem;
