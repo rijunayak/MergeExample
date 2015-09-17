@@ -12,7 +12,7 @@ public class BibliotecaApp {
     public BibliotecaApp() {
         this.welcomeMessage = new WelcomeMessageFactory().getDefaultWelcomeMessage();
         this.menu = new MenuFactory().getDefaultMenu();
-        this.session = new Session(new User("000-0000", "password", "undefined"));
+        this.session = new Session(new User("000-0000", "password", "undefined", "name1", "email1", "phone1"));
         this.library = new LibraryFactory().getDefaultLibrary(session);
         this.parser = new InputParser("");
     }
