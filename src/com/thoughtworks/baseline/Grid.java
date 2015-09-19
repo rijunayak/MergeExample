@@ -24,7 +24,7 @@ public class Grid {
     }
 
     public boolean sameStateInNextStep(int i, int j) {
-        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell()) {
+        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell() && gridOfCells.get(i - 1).get(j).stateOfCell()) {
             return true;
         }
         return false;

@@ -88,4 +88,20 @@ public class GridTest {
 
         assertEquals(true, grid.sameStateInNextStep(1, 2));
     }
+
+    @Test
+    public void shouldReturnDeadCellForTheSecondCellInAGridWithTwoAliveCellsInARow() {
+        Cell cell1 = mock(Cell.class);
+        Cell cell2 = mock(Cell.class);
+        Cell cell3 = mock(Cell.class);
+        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
+        Grid grid = new Grid(gridOfCells);
+
+        when(cell1.stateOfCell()).thenReturn(true);
+        when(cell2.stateOfCell()).thenReturn(true);
+        when(cell3.stateOfCell()).thenReturn(false);
+
+        assertEquals(false, grid.sameStateInNextStep(1,2));
+    }
 }
