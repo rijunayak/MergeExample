@@ -19,4 +19,11 @@ public class CellTest {
 
         assertEquals(false, cell.stateOfCell());
     }
+
+    @Test
+    public void shouldShowXIfAlive() {
+        Cell cell = new Cell(true);
+
+        assertEquals("X", cell.toString());
+    }
 }

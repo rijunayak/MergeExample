@@ -14,4 +14,9 @@ public class Cell {
     public boolean stateOfCell() {
         return state;
     }
+
+    @Override
+    public String toString() {
+        return "X";
+    }
 }
