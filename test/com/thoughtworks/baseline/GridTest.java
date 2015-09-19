@@ -173,4 +173,27 @@ public class GridTest {
 
         assertEquals(true, grid.sameStateInNextStep(2,2));
     }
+
+    @Test
+    public void shouldReturnAliveCellForAnAliveCellWithAnAliveCellToItsLeftAndToItsDiagnolNorthLeftOnly() {
+        Cell cell1 = mock(Cell.class);
+        Cell cell2 = mock(Cell.class);
+        Cell cell3 = mock(Cell.class);
+        Cell cell4 = mock(Cell.class);
+        Cell cell5 = mock(Cell.class);
+        Cell cell6 = mock(Cell.class);
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell4, cell5, cell6));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
+        Grid grid = new Grid(gridOfCells);
+
+        when(cell1.stateOfCell()).thenReturn(true);
+        when(cell2.stateOfCell()).thenReturn(false);
+        when(cell3.stateOfCell()).thenReturn(false);
+        when(cell4.stateOfCell()).thenReturn(true);
+        when(cell5.stateOfCell()).thenReturn(true);
+        when(cell6.stateOfCell()).thenReturn(false);
+
+        assertEquals(true, grid.sameStateInNextStep(2,2));
+    }
 }
