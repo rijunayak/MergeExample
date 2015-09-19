@@ -47,7 +47,9 @@ public class Grid {
                 return true;
             }
         } else {
-            return true;
+            if(noOfAliveNeighbours != 3) {
+                return true;
+            }
         }
         return false;
     }
