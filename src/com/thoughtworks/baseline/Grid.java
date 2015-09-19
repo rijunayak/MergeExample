@@ -5,17 +5,20 @@ import java.util.ArrayList;
 
 public class Grid {
 
-    private ArrayList<Cell> cells;
+    private ArrayList<ArrayList<Cell>> gridOfCells;
 
-    public Grid(ArrayList<Cell> cells) {
-        this.cells = cells;
+    public Grid(ArrayList<ArrayList<Cell>> gridOfCells) {
+        this.gridOfCells = gridOfCells;
     }
 
     @Override
     public String toString() {
         String grid = "";
-        for(Cell cell : cells) {
-            grid += cell.toString();
+        for(ArrayList<Cell> cells : gridOfCells) {
+            for(Cell cell : cells) {
+                grid += cell.toString();
+            }
+            grid += "\n";
         }
         return grid;
     }
