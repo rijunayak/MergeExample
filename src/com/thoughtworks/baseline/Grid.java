@@ -36,11 +36,11 @@ public class Grid {
             noOfAliveNeighbours++;
         if(gridOfCells.get(i - 2).get(j - 2).stateOfCell())
             noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j - 1).stateOfCell())
+        if(coordinatesInGrid(i, j - 1) && gridOfCells.get(i).get(j - 1).stateOfCell())
             noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j - 2).stateOfCell())
+        if(coordinatesInGrid(i, j - 2) && gridOfCells.get(i).get(j - 2).stateOfCell())
             noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j).stateOfCell())
+        if(coordinatesInGrid(i, j) && gridOfCells.get(i).get(j).stateOfCell())
             noOfAliveNeighbours++;
         if(stateOfCellUnderConsiderationIsAlive) {
             if(noOfAliveNeighbours == 2 || noOfAliveNeighbours == 3) {
@@ -52,5 +52,11 @@ public class Grid {
             }
         }
         return false;
+    }
+
+    private boolean coordinatesInGrid(int i, int j) {
+        if(i >= gridOfCells.size())
+            return false;
+        return true;
     }
 }
