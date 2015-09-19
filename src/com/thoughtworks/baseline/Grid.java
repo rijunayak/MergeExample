@@ -25,8 +25,8 @@ public class Grid {
 
     public boolean sameStateInNextStep(int i, int j) {
         int noOfAliveNeighbours = 0;
-        boolean stateOfCellUnderConsideration = gridOfCells.get(i - 1).get(j - 1).stateOfCell();
-        if(stateOfCellUnderConsideration) {
+        boolean stateOfCellUnderConsiderationIsAlive = gridOfCells.get(i - 1).get(j - 1).stateOfCell();
+        if(stateOfCellUnderConsiderationIsAlive) {
             if(gridOfCells.get(i - 1).get(j - 2).stateOfCell())
                 noOfAliveNeighbours++;
             if(gridOfCells.get(i - 1).get(j).stateOfCell())
@@ -46,6 +46,8 @@ public class Grid {
             if(noOfAliveNeighbours == 2 || noOfAliveNeighbours == 3) {
                 return true;
             }
+        } else {
+            return true;
         }
         return false;
     }

@@ -385,6 +385,6 @@ public class GridTest {
         when(cell8.stateOfCell()).thenReturn(false);
         when(cell9.stateOfCell()).thenReturn(true);
 
-        assertEquals(false, grid.sameStateInNextStep(2,2));
+        assertEquals(true, grid.sameStateInNextStep(2,2));
     }
 }
