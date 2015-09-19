@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <project name="Baseline4" default="runjUnit" basedir=".">
 
-    <property name = "project.name" value="Baseline4" />
+    <property name = "project.name" value="Baseline5" />
     <property name = "main.name" value="BaselineDemo" />
     <property name = "package.name" value="com.thoughtworks.baseline" />
 
