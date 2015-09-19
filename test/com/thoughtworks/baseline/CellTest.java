@@ -12,4 +12,11 @@ public class CellTest {
 
         assertEquals(true, cell.stateOfCell());
     }
+
+    @Test
+    public void shouldHaveADeadState() {
+        Cell cell = new Cell(false);
+
+        assertEquals(false, cell.stateOfCell());
+    }
 }
