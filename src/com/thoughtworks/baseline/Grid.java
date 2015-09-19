@@ -5,14 +5,18 @@ import java.util.ArrayList;
 
 public class Grid {
 
-    private Cell cell;
+    private ArrayList<Cell> cells;
 
-    public Grid(Cell cell) {
-        this.cell = cell;
+    public Grid(ArrayList<Cell> cells) {
+        this.cells = cells;
     }
 
     @Override
     public String toString() {
-        return "X";
+        String grid = "";
+        for(Cell cell : cells) {
+            grid += cell.toString();
+        }
+        return grid;
     }
 }
