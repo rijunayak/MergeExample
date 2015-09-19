@@ -63,14 +63,23 @@ public class GridTest {
     public void shouldReturnADeadCellAsTheNextStateForASingleAliveCellInGrid() {
         Cell cell1 = mock(Cell.class);
         Cell cell2 = mock(Cell.class);
-        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
+        Cell cell3 = mock(Cell.class);
+        Cell cell4 = mock(Cell.class);
+        Cell cell5 = mock(Cell.class);
+        Cell cell6 = mock(Cell.class);
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell4, cell5, cell6));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
         Grid grid = new Grid(gridOfCells);
 
         when(cell1.stateOfCell()).thenReturn(false);
-        when(cell2.stateOfCell()).thenReturn(true);
+        when(cell2.stateOfCell()).thenReturn(false);
+        when(cell3.stateOfCell()).thenReturn(false);
+        when(cell4.stateOfCell()).thenReturn(false);
+        when(cell5.stateOfCell()).thenReturn(false);
+        when(cell6.stateOfCell()).thenReturn(true);
 
-        assertEquals(false, grid.sameStateInNextStep(1, 2));
+        assertEquals(false, grid.sameStateInNextStep(2, 2));
     }
 
     @Test
@@ -78,15 +87,22 @@ public class GridTest {
         Cell cell1 = mock(Cell.class);
         Cell cell2 = mock(Cell.class);
         Cell cell3 = mock(Cell.class);
-        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
+        Cell cell4 = mock(Cell.class);
+        Cell cell5 = mock(Cell.class);
+        Cell cell6 = mock(Cell.class);
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell4, cell5, cell6));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
         Grid grid = new Grid(gridOfCells);
 
-        when(cell1.stateOfCell()).thenReturn(true);
-        when(cell2.stateOfCell()).thenReturn(true);
-        when(cell3.stateOfCell()).thenReturn(true);
+        when(cell1.stateOfCell()).thenReturn(false);
+        when(cell2.stateOfCell()).thenReturn(false);
+        when(cell3.stateOfCell()).thenReturn(false);
+        when(cell4.stateOfCell()).thenReturn(true);
+        when(cell5.stateOfCell()).thenReturn(true);
+        when(cell6.stateOfCell()).thenReturn(true);
 
-        assertEquals(true, grid.sameStateInNextStep(1, 2));
+        assertEquals(true, grid.sameStateInNextStep(2, 2));
     }
 
     @Test
@@ -94,14 +110,44 @@ public class GridTest {
         Cell cell1 = mock(Cell.class);
         Cell cell2 = mock(Cell.class);
         Cell cell3 = mock(Cell.class);
-        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
+        Cell cell4 = mock(Cell.class);
+        Cell cell5 = mock(Cell.class);
+        Cell cell6 = mock(Cell.class);
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell4, cell5, cell6));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
         Grid grid = new Grid(gridOfCells);
 
-        when(cell1.stateOfCell()).thenReturn(true);
+        when(cell1.stateOfCell()).thenReturn(false);
+        when(cell2.stateOfCell()).thenReturn(false);
+        when(cell3.stateOfCell()).thenReturn(false);
+        when(cell4.stateOfCell()).thenReturn(true);
+        when(cell5.stateOfCell()).thenReturn(true);
+        when(cell6.stateOfCell()).thenReturn(false);
+
+        assertEquals(false, grid.sameStateInNextStep(2, 2));
+    }
+
+    @Test
+    public void shouldReturnAliveCellForAnAliveCellWithAnAliveCellToItsLeftAndToItsVerticalNorthOnly() {
+        Cell cell1 = mock(Cell.class);
+        Cell cell2 = mock(Cell.class);
+        Cell cell3 = mock(Cell.class);
+        Cell cell4 = mock(Cell.class);
+        Cell cell5 = mock(Cell.class);
+        Cell cell6 = mock(Cell.class);
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell4, cell5, cell6));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
+        Grid grid = new Grid(gridOfCells);
+
+        when(cell1.stateOfCell()).thenReturn(false);
         when(cell2.stateOfCell()).thenReturn(true);
         when(cell3.stateOfCell()).thenReturn(false);
+        when(cell4.stateOfCell()).thenReturn(true);
+        when(cell5.stateOfCell()).thenReturn(true);
+        when(cell6.stateOfCell()).thenReturn(false);
 
-        assertEquals(false, grid.sameStateInNextStep(1,2));
+        assertEquals(true, grid.sameStateInNextStep(2,2));
     }
 }
