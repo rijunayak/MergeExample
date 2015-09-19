@@ -26,24 +26,26 @@ public class Grid {
     public boolean sameStateInNextStep(int i, int j) {
         int noOfAliveNeighbours = 0;
         boolean stateOfCellUnderConsideration = gridOfCells.get(i - 1).get(j - 1).stateOfCell();
-        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i - 1).get(j).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i - 2).get(j - 1).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i - 2).get(j).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i - 2).get(j - 2).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j - 1).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j - 2).stateOfCell())
-            noOfAliveNeighbours++;
-        if(gridOfCells.get(i).get(j).stateOfCell())
-            noOfAliveNeighbours++;
-        if(noOfAliveNeighbours == 2 || noOfAliveNeighbours == 3) {
-            return true;
+        if(stateOfCellUnderConsideration) {
+            if(gridOfCells.get(i - 1).get(j - 2).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i - 1).get(j).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i - 2).get(j - 1).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i - 2).get(j).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i - 2).get(j - 2).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i).get(j - 1).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i).get(j - 2).stateOfCell())
+                noOfAliveNeighbours++;
+            if(gridOfCells.get(i).get(j).stateOfCell())
+                noOfAliveNeighbours++;
+            if(noOfAliveNeighbours == 2 || noOfAliveNeighbours == 3) {
+                return true;
+            }
         }
         return false;
     }
