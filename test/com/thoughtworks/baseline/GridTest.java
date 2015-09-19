@@ -57,4 +57,14 @@ public class GridTest {
 
         assertEquals("XX\nXX\n", grid.toString());
     }
+
+    @Test
+    public void shouldReturnADeadCellAsTheNextStateForASingleAliveCellInGrid() {
+        Cell cell = mock(Cell.class);
+        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
+        Grid grid = new Grid(gridOfCells);
+
+        assertEquals(false, grid.sameStateInNextStep(1, 1));
+    }
 }

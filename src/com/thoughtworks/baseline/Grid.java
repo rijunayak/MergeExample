@@ -1,4 +1,4 @@
-//A grid has a two dimensional orthogonal grid of cells which it can display
+//A grid has a two dimensional orthogonal grid of cells which it can display and decide the next state for a cell
 package com.thoughtworks.baseline;
 
 import java.util.ArrayList;
@@ -21,5 +21,9 @@ public class Grid {
             grid += "\n";
         }
         return grid;
+    }
+
+    public boolean sameStateInNextStep(int i, int j) {
+        return false;
     }
 }
