@@ -31,6 +31,8 @@ public class Grid {
             noOfAliveNeighbours++;
         if(gridOfCells.get(i - 2).get(j - 1).stateOfCell())
             noOfAliveNeighbours++;
+        if(gridOfCells.get(i - 2).get(j).stateOfCell())
+            noOfAliveNeighbours++;
         if(noOfAliveNeighbours == 2) {
             return true;
         }
