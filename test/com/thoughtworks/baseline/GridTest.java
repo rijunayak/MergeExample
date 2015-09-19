@@ -14,8 +14,8 @@ public class GridTest {
     @Test
     public void shouldReturnTheStringOfItsStateWithOnlyOneAliveCell() {
         Cell cell = mock(Cell.class);
-        ArrayList<Cell> cells = new ArrayList<Cell>(Arrays.asList(cell));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<ArrayList<Cell>>(Arrays.asList(cells));
+        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
         Grid grid = new Grid(gridOfCells);
 
         when(cell.toString()).thenReturn("X");
@@ -28,8 +28,8 @@ public class GridTest {
         Cell cell1 = mock(Cell.class);
         Cell cell2 = mock(Cell.class);
         Cell cell3 = mock(Cell.class);
-        ArrayList<Cell> cells = new ArrayList<Cell>(Arrays.asList(cell1, cell2, cell3));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<ArrayList<Cell>>(Arrays.asList(cells));
+        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(cells));
         Grid grid = new Grid(gridOfCells);
 
         when(cell1.toString()).thenReturn("X");
@@ -45,9 +45,9 @@ public class GridTest {
         Cell cell2 = mock(Cell.class);
         Cell cell3 = mock(Cell.class);
         Cell cell4 = mock(Cell.class);
-        ArrayList<Cell> firstRowOfCells = new ArrayList<Cell>(Arrays.asList(cell1, cell2));
-        ArrayList<Cell> secondRowOfCells = new ArrayList<Cell>(Arrays.asList(cell3, cell4));
-        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<ArrayList<Cell>>(Arrays.asList(firstRowOfCells, secondRowOfCells));
+        ArrayList<Cell> firstRowOfCells = new ArrayList<>(Arrays.asList(cell1, cell2));
+        ArrayList<Cell> secondRowOfCells = new ArrayList<>(Arrays.asList(cell3, cell4));
+        ArrayList<ArrayList<Cell>> gridOfCells = new ArrayList<>(Arrays.asList(firstRowOfCells, secondRowOfCells));
         Grid grid = new Grid(gridOfCells);
 
         when(cell1.toString()).thenReturn("X");
