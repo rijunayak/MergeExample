@@ -43,8 +43,8 @@ public class Grid {
         if(gridOfCells.get(i).get(j).stateOfCell())
             noOfAliveNeighbours++;
         if(noOfAliveNeighbours == 2 || noOfAliveNeighbours == 3) {
-            return stateOfCellUnderConsideration;
+            return true;
         }
-        return !stateOfCellUnderConsideration;
+        return false;
     }
 }
