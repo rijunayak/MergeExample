@@ -7,7 +7,6 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.when;
 
 public class GridTest {
@@ -80,8 +79,8 @@ public class GridTest {
         when(cell2.stateOfCell()).thenReturn(false);
         when(cell3.stateOfCell()).thenReturn(false);
         when(cell4.stateOfCell()).thenReturn(false);
-        when(cell5.stateOfCell()).thenReturn(false);
-        when(cell6.stateOfCell()).thenReturn(true);
+        when(cell5.stateOfCell()).thenReturn(true);
+        when(cell6.stateOfCell()).thenReturn(false);
         when(cell7.stateOfCell()).thenReturn(false);
         when(cell8.stateOfCell()).thenReturn(false);
         when(cell9.stateOfCell()).thenReturn(false);
