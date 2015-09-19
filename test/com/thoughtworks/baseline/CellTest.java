@@ -26,4 +26,11 @@ public class CellTest {
 
         assertEquals("X", cell.toString());
     }
+
+    @Test
+    public void shouldShowHyphenIfDead() {
+        Cell cell = new Cell(false);
+
+        assertEquals("-", cell.toString());
+    }
 }
