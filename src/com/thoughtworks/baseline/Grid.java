@@ -24,6 +24,9 @@ public class Grid {
     }
 
     public boolean sameStateInNextStep(int i, int j) {
+        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell()) {
+            return true;
+        }
         return false;
     }
 }
