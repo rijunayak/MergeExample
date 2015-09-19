@@ -24,7 +24,12 @@ public class Grid {
     }
 
     public boolean sameStateInNextStep(int i, int j) {
-        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell() && gridOfCells.get(i - 1).get(j).stateOfCell()) {
+        int noOfAliveNeighbours = 0;
+        if(gridOfCells.get(i - 1).get(j - 2).stateOfCell())
+            noOfAliveNeighbours++;
+        if(gridOfCells.get(i - 1).get(j).stateOfCell())
+            noOfAliveNeighbours++;
+        if(noOfAliveNeighbours == 2) {
             return true;
         }
         return false;
