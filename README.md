@@ -1,5 +1,5 @@
 ##Problem Description
-Calculate Sales Tax of given items and grand total
+Simulates the Game Of Life Program.
 
 ##Setting up development environment
 
