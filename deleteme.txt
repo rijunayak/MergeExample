@@ -1,5 +1,0 @@
-total 0
-drwxr-xr-x   4 rijun  staff   136 Feb  9 09:34 .
-drwxr-xr-x+ 76 rijun  staff  2584 Feb  9 09:34 ..
-drwxr-xr-x  10 rijun  staff   340 Feb  9 09:34 .git
--rw-r--r--   1 rijun  staff     0 Feb  9 09:34 deleteme.txt
